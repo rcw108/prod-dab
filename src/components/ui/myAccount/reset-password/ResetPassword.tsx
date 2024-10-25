@@ -6,7 +6,7 @@ import { useRouter, useSearchParams } from 'next/navigation'
 import { FC, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import Description from '../../headings/Description'
-import styles from './resetPassword.module.scss'
+import styles from './ResetPassword.module.scss'
 
 interface IReset {
 	newPassword: string
