@@ -1,8 +1,8 @@
-import ResetPassword from '@/components/ui/myAccount/reset-password/ResetPassword'
+import ResetWeapper from '@/components/ui/myAccount/reset-password/ResetWeapper'
 import { FC } from 'react'
 
 const ResetPage: FC = () => {
-	return <ResetPassword />
+	return <ResetWeapper />
 }
 
 export default ResetPage
