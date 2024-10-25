@@ -31,6 +31,7 @@
 		margin-left: 20px;
 	}
 	.left {
+		max-width: 45%;
 		display: flex;
 		align-items: center;
 	}
@@ -110,6 +111,7 @@
 			flex-wrap: wrap;
 			justify-content: center;
 			.left {
+				max-width: 100%;
 				justify-content: center;
 				width: 100%;
 			}

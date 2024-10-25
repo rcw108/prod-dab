@@ -61,6 +61,43 @@
 	}
 }
 
+.descrProduct {
+	h1 {
+		font-size: 34px;
+		color: #fff;
+		font-weight: 400;
+		@apply font-sofia-sans;
+		margin-bottom: 20px;
+	}
+	h2 {
+		font-size: 30px;
+		color: #fff;
+		font-weight: 400;
+		@apply font-sofia-sans;
+		margin-bottom: 20px;
+	}
+	h3 {
+		font-size: 24px;
+		color: #fff;
+		font-weight: 400;
+		@apply font-sofia-sans;
+		margin-bottom: 20px;
+	}
+	h4,
+	h5,
+	h6 {
+		font-size: 20px;
+		color: #fff;
+		font-weight: 400;
+		@apply font-sofia-sans;
+		margin-bottom: 20px;
+	}
+	p {
+		margin-bottom: 20px;
+		display: block;
+	}
+}
+
 @media (max-width: 768px) {
 	.bundleInfoStatus {
 		h5,

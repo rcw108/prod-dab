@@ -1,7 +1,14 @@
 export const getStoreLocal = (name: string) => {
-	if (typeof localStorage !== 'undefined') {
+	if (typeof localStorage !== 'undefined' && localStorage !== undefined) {
 		const ls = localStorage.getItem(name)
-		return ls !== null && ls !== undefined ? JSON.parse(ls) : null
+		if (ls === null || ls === undefined) return null
+
+		try {
+			return JSON.parse(ls)
+		} catch (error) {
+			console.error('Failed to parse JSON:', error)
+			return null
+		}
 	}
 
 	return null

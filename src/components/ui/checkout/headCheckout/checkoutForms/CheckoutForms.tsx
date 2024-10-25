@@ -1447,14 +1447,18 @@ const CheckoutForms: FC<{
 						</div>
 					)}
 
-					<SmallHeading
-						className={styles.recurring}
-						title={`Recurring total $${subscribeTotal().toFixed(2)} / month`}
-					/>
-					<Description
-						className={styles.recurring}
-						title={`First renewal: ${calculateNextRenewal(itemListCount?.find(item => item.paymentType === 'subscription')?.subscriptionPeriod as 'every month' | 'every 2 weeks' | 'every 2 months')}`}
-					/>
+					{itemListCount.some(item => item.paymentType === 'subscription') && (
+						<SmallHeading
+							className={styles.recurring}
+							title={`Recurring total $${subscribeTotal().toFixed(2)} / month`}
+						/>
+					)}
+					{itemListCount.some(item => item.paymentType === 'subscription') && (
+						<Description
+							className={styles.recurring}
+							title={`First renewal: ${calculateNextRenewal(itemListCount?.find(item => item.paymentType === 'subscription')?.subscriptionPeriod as 'every month' | 'every 2 weeks' | 'every 2 months')}`}
+						/>
+					)}
 
 					<div className={styles.deskBtn}>
 						{itemListCount && (

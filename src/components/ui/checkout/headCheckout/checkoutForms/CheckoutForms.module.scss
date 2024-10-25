@@ -1,7 +1,9 @@
 .wrap {
+	margin: 0 40px;
 	display: flex;
 	justify-content: space-between;
 	margin-top: 40px;
+	padding-bottom: 40px;
 	.right {
 		width: calc(50% - 15px);
 		background: #fffbf8;
@@ -484,8 +486,17 @@
 	}
 }
 
+@media (max-width: 1440px) {
+	.wrap {
+		margin: 0 20px;
+		margin-top: 40px;
+	}
+}
+
 @media (max-width: 1024px) {
 	.wrap {
+		margin: 0;
+		margin-top: 40px;
 		flex-direction: column-reverse;
 		gap: 40px;
 		padding: 0 20px;

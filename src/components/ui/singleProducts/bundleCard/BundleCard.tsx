@@ -31,9 +31,13 @@ export interface BundleItemSingle {
 	id: number
 	slug: string
 	stock_status: string
+	short_description: string
 	tags: Tag[]
 	image: IImage
 	stock_quantity: number
+	quantity_min: number
+	max_quantity: number
+	default_quantity: number
 }
 
 const BundleCard: FC<{
@@ -124,8 +128,12 @@ const BundleCard: FC<{
 					slug: itemInAllProducts.slug,
 					stock_status: bundleItem.stock_status,
 					tags: itemInAllProducts.tags,
+					short_description: itemInAllProducts.short_description,
 					image: itemInAllProducts.images[0],
-					stock_quantity: itemInAllProducts.stock_quantity
+					stock_quantity: itemInAllProducts.stock_quantity,
+					quantity_min: +bundleItem.quantity_min,
+					max_quantity: +bundleItem.quantity_max,
+					default_quantity: +bundleItem.quantity_default
 				})
 			}
 		})
@@ -151,7 +159,7 @@ const BundleCard: FC<{
 		)
 		const outOfStockItems = items.filter(item => item.stock !== 'in_stock')
 		const insufficientQuantityItems = items.filter(
-			item => item.count > item.stock_count
+			item => item.count > item.stock_count && item.stock_count !== null
 		)
 
 		let message = ''
@@ -172,6 +180,15 @@ const BundleCard: FC<{
 		}
 
 		setValidation({ message, status })
+	}
+
+	const handlerNewItem = (newItem: BundleItem) => {
+		setItems(prevItems => {
+			const itemCounts = prevItems.filter(item => item.id !== newItem.id)
+			itemCounts.push(newItem)
+			console.log(itemCounts)
+			return itemCounts
+		})
 	}
 
 	useEffect(() => {
@@ -281,13 +298,15 @@ const BundleCard: FC<{
 						)}
 					</div>
 				</div>
-				<Description title={ReactHtmlParser(product.description)} />
+				<div className={stylesBun.descrProduct}>
+					{ReactHtmlParser(product.description)}
+				</div>
 
 				<div className={stylesBun.bundleChoice}>
 					{bundleItemToRender().map(item => (
 						<BundleSingleItem
 							items={items}
-							handler={setItems}
+							handler={handlerNewItem}
 							key={item.id}
 							{...item}
 						/>

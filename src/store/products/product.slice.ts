@@ -16,6 +16,7 @@ export const productSlice = createSlice({
 	reducers: {
 		pushAllProducts: (state, { payload }) => {
 			localStorage.setItem('products', JSON.stringify(payload))
+			console.log(payload)
 			state.products = payload
 		},
 		setPopularCategories: (state, { payload }) => {

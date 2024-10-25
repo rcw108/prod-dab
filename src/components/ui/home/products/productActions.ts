@@ -24,7 +24,6 @@ export const getAllProducts = cache(async (per_page: number = 100) => {
 			per_page
 		}
 	)
-
 	return {
 		products: response.data
 	}
