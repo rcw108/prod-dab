@@ -1,0 +1,58 @@
+.item {
+	border-bottom: 1px solid #ffffff4d;
+	padding: 32px 0px 32px 0px;
+	.top {
+		@apply flex justify-between items-center;
+		cursor: pointer;
+		.title {
+			font-size: 24px;
+			font-weight: 700;
+			line-height: 1.5em;
+			@apply font-sofia-sans;
+		}
+		img {
+			transform: rotate(-90deg);
+			transition: all 0.35s ease-in-out;
+		}
+	}
+	.content {
+		display: grid;
+		grid-template-rows: 0fr;
+		transition: all 0.35s ease-in-out;
+		max-height: 0px;
+		overflow: hidden;
+		.addBox {
+			color: #fff;
+			font-size: 18px;
+			line-height: 25.2px;
+			border: 1px solid rgb(255 255 255 / 30%);
+			div {
+				&:last-child {
+					border-bottom: 0px;
+				}
+			}
+		}
+	}
+	&.open {
+		.top {
+			img {
+				transform: rotate(0deg);
+			}
+		}
+		.content {
+			padding: 32px 0px 30px 0px;
+			grid-template-rows: 1fr;
+			max-height: 1000px;
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	.item {
+		.top {
+			.title {
+				font-size: 18px;
+			}
+		}
+	}
+}

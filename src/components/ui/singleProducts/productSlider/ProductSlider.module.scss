@@ -1,0 +1,47 @@
+.image {
+	position: relative;
+	border-radius: 20px;
+	div {
+		border-radius: 20px;
+	}
+	figure {
+		border-radius: 20px;
+	}
+	img {
+		border-radius: 20px;
+	}
+}
+
+.imageMobile {
+	display: none;
+}
+
+@media (max-width: 1024px) {
+	.image {
+		display: none;
+	}
+	.imageMobile {
+		display: block;
+		.imgBox {
+			position: relative;
+			width: 100%;
+			height: 500px;
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	.imageMobile {
+		.imgBox {
+			height: 400px;
+		}
+	}
+}
+
+@media (max-width: 575px) {
+	.imageMobile {
+		.imgBox {
+			height: 320px;
+		}
+	}
+}

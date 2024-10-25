@@ -1,0 +1,22 @@
+.tableItem {
+	min-height: 62px;
+	border-bottom: 1px solid rgb(255 255 255 / 30%);
+	display: flex;
+	align-items: center;
+	color: #fff;
+	.title {
+		height: 100%;
+		border-right: 1px solid rgb(255 255 255 / 30%);
+		padding: 1em 1.41575em;
+		font-weight: 600;
+		font-size: 18px;
+		line-height: 25.2px;
+		min-width: 228px;
+	}
+	.descr {
+		padding: 1em 1.41575em;
+		font-weight: 600;
+		font-size: 18px;
+		line-height: 25.2px;
+	}
+}

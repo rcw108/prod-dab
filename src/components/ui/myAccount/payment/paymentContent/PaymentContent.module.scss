@@ -1,0 +1,28 @@
+.noSub {
+	background-color: #3d9cd2;
+	min-height: 57px;
+	width: 100%;
+	font-size: 16px;
+	color: #fff;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1em 1.618em;
+	border-left: 0.6180469716em solid rgba(0, 0, 0, 0.15);
+	border-radius: 2px;
+}
+
+.add {
+	margin-bottom: 40px;
+	background-color: #3bb54a;
+	transition: all 0.3s ease-in-out;
+	color: #fff;
+	padding: 0.6180469716em 1.41575em;
+	cursor: pointer;
+	display: inline-block;
+	width: 184px;
+	font-size: 15px;
+	&:hover {
+		background-color: #009245;
+	}
+}

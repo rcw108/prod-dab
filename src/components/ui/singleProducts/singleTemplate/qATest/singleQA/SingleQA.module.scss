@@ -1,0 +1,111 @@
+.single {
+	@apply flex justify-between items-center mb-[60px];
+	&.right {
+		@apply flex-row-reverse;
+		.leftContent {
+			width: 48.144%;
+			padding: 0px 32px 0px 32px;
+		}
+		.rightContent {
+			width: 51.856%;
+			padding-right: 2.5%;
+		}
+	}
+	&.left {
+		.leftContent {
+			width: 51.856%;
+			padding-right: 5%;
+		}
+		.rightContent {
+			width: 48.144%;
+		}
+	}
+	.rightContent {
+		.img {
+			position: relative;
+			width: 100%;
+			height: 540px;
+			border-radius: 30px;
+			img {
+				border-radius: 30px;
+			}
+		}
+	}
+	.leftContent {
+		.title {
+			@apply font-oswald font-bold;
+			color: #222;
+			font-size: 34px;
+			margin-bottom: 32px;
+		}
+		.text {
+			color: #010101;
+			font-size: 18px;
+			line-height: 1.4em;
+		}
+	}
+	.reviewCard {
+		margin: 0;
+		margin-top: 64px;
+	}
+}
+
+@media (max-width: 1024px) {
+	.single {
+		.rightContent {
+			.img {
+				height: 376px;
+			}
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	.single {
+		flex-direction: column-reverse;
+
+		&.left {
+			.leftContent {
+				padding-right: 0;
+				width: 100%;
+				.title {
+					font-size: 26px;
+				}
+				.text {
+					font-size: 16px;
+				}
+			}
+			.rightContent {
+				margin-bottom: 40px;
+				width: 100%;
+				.img {
+					height: 310px;
+				}
+			}
+		}
+		&.right {
+			flex-direction: column-reverse;
+			justify-content: center;
+			gap: 20px;
+			.leftContent {
+				padding: 0;
+				width: 100%;
+				.text {
+					font-size: 16px;
+				}
+				.img {
+					height: 310px;
+				}
+			}
+			.rightContent {
+				width: 100%;
+				.text {
+					font-size: 16px;
+				}
+				.img {
+					height: 310px;
+				}
+			}
+		}
+	}
+}

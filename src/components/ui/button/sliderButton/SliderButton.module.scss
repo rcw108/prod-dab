@@ -1,0 +1,27 @@
+.btn {
+	width: 34px;
+	height: 34px;
+	@apply bg-green-accent rounded-full flex items-center justify-center;
+	position: absolute;
+	content: '';
+	top: 45%;
+	transform: translateY(-50%);
+	cursor: pointer;
+	z-index: 33;
+
+	svg {
+		max-width: 15px;
+		max-height: 15px;
+	}
+}
+
+.left {
+	left: 83px;
+	svg {
+		transform: rotate(180deg);
+	}
+}
+
+.right {
+	right: 83px;
+}

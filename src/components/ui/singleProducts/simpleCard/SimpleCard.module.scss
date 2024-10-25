@@ -1,0 +1,324 @@
+.item {
+	display: flex;
+	justify-content: space-between;
+	position: relative;
+	.left {
+		width: 55.4%;
+		padding: 0% 6% 0% 0%;
+		.wrap {
+			position: sticky;
+			top: 0;
+		}
+		.review {
+			margin-top: 80px;
+		}
+	}
+	.right {
+		width: 44.6%;
+		.rate {
+			@apply flex items-center gap-5;
+			font-weight: 300;
+		}
+		.title {
+			color: #ffffff;
+			@apply font-oswald uppercase mb-6;
+			font-size: 42px;
+			font-weight: 700;
+			line-height: 1.3em;
+			letter-spacing: 0.05em;
+			margin-top: 12px;
+		}
+
+		.priceDescr {
+			margin-bottom: 20px;
+			del {
+				color: #ffffff80;
+				font-size: 22px;
+				font-weight: 700;
+				@apply font-oswald;
+				span {
+					bdi {
+						color: #ffffff80;
+						font-size: 22px;
+						span {
+							color: #ffffff80;
+							font-size: 22px;
+							font-weight: 700;
+							@apply font-oswald;
+						}
+					}
+				}
+			}
+			ins {
+				margin-left: 8px;
+				@apply font-oswald;
+				text-decoration: none;
+				font-size: 22px;
+				font-weight: 700;
+				line-height: 33px;
+				letter-spacing: 0em;
+				text-align: left;
+				color: #fff;
+			}
+			> small {
+				font-size: 16.5px;
+			}
+		}
+		.buy {
+			.paymentType {
+				@apply font-oswald text-xl font-bold bg-white mb-10 mt-12 text-black;
+				border: 1px solid #2b2b2b;
+				border-radius: 10px;
+				padding: 27px 35px;
+				.paymentTitle {
+					font-weight: 23px;
+					border-bottom: 1px solid #bfbfbf;
+					padding-bottom: 15px;
+					@apply font-oswald font-bold;
+					margin-bottom: 1em;
+				}
+				.oneTime,
+				.subscribe {
+					&.checked {
+						.payTitle {
+							&:after {
+								@apply absolute left-[4px] top-[15px] rounded-full bg-[#007AFF] w-2 h-2;
+								content: '';
+								transform: translateY(-50%);
+							}
+						}
+					}
+					.payTitle {
+						@apply font-bold font-oswald text-xl pl-6 relative cursor-pointer;
+						&:before {
+							@apply absolute left-[0] rounded-full bg-white border-2 border-[#007AFF] w-4 h-4;
+							content: '';
+							transform: translateY(-50%);
+							top: 15px;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.status {
+		@apply flex gap-3 items-center mb-5;
+		.save {
+			padding: 12px 20px;
+			border-radius: 95px;
+			@apply font-sofia-sans;
+			font-size: 18px;
+			line-height: 21px;
+			display: inline-block;
+			letter-spacing: 0em;
+			text-align: left;
+			color: #fff;
+			background: url('/save.svg') no-repeat center center/100% 100%;
+			background-size: cover;
+		}
+		.stock {
+			.inStock,
+			.outStock {
+				@apply flex gap-3 items-center;
+				.stockTitle,
+				.outStockTitle {
+					@apply font-bold font-sofia-sans;
+					font-size: 18px;
+					color: #00e131;
+				}
+				.circle {
+					@apply flex items-center justify-center;
+					width: 18px;
+					height: 18px;
+					background: hsl(133deg 100% 44% / 20%);
+					border-radius: 50%;
+					.dot {
+						width: 10px;
+						height: 10px;
+						display: inline-block;
+						border-radius: 50%;
+						background: #00e131;
+					}
+				}
+			}
+			.outStock {
+				.outStockTitle {
+					color: #ff0000;
+				}
+				.circle {
+					.dot {
+						background: #ff0000;
+					}
+				}
+			}
+		}
+	}
+	.deliver {
+		overflow: hidden;
+		transition: all 0.3s ease-in-out;
+		.delTitle {
+			margin: 15px 0 20px;
+		}
+		select {
+			border: 1px solid #bfbfbf;
+			background-color: transparent;
+			padding: 0 31px 0 11px;
+			background-size: 15px 15px;
+			box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05);
+			font-size: 16px;
+			line-height: 40px;
+			text-indent: 0.01px;
+			max-width: 100%;
+			margin-bottom: 5px;
+			appearance: none;
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			@apply font-sofia-sans h-10 w-full font-light;
+		}
+		.selectBox {
+			position: relative;
+			&::after {
+				position: absolute;
+				content: url('/subscribe.svg');
+				top: 50%;
+				right: 30px;
+				z-index: 33;
+			}
+		}
+	}
+	.btns {
+		button {
+			cursor: pointer;
+			.addToCart {
+				display: flex;
+				justify-content: center;
+				gap: 10px;
+				align-items: center;
+			}
+			width: 100%;
+			height: 70px;
+			border-radius: 14px 14px 14px 14px;
+			padding: 16px 60px 13px 60px;
+			font-size: 26px;
+			line-height: 1;
+			font-weight: 600;
+			margin-top: 33px;
+			display: inline-block;
+			transition: all 0.3s ease-in-out;
+			@apply uppercase text-text-white
+				bg-orange-color font-sofia-sans;
+			&:hover {
+				transform: scale(1.05);
+			}
+		}
+	}
+
+	.count {
+		margin: 0 auto;
+		color: #000;
+		background-color: #fff;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 138px;
+		height: 46px;
+		border: 1px solid #f87212;
+	}
+
+	.minus,
+	.plus {
+		cursor: pointer;
+		width: 46px;
+		height: 46px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 35px;
+		font-weight: 500;
+		@apply font-sofia-sans;
+	}
+
+	input {
+		color: #000;
+		border-radius: 0px;
+		width: 46px;
+		height: 46px;
+		text-align: center;
+		border: none;
+		outline: none;
+		font-size: 30px;
+		background-color: transparent;
+		@apply font-sofia-sans;
+	}
+
+	input[type='number']::-webkit-inner-spin-button,
+	input[type='number']::-webkit-outer-spin-button {
+		-webkit-appearance: none;
+		margin: 0;
+	}
+
+	input[type='number'] {
+		-moz-appearance: textfield;
+	}
+}
+
+@media (max-width: 1024px) {
+	.item {
+		flex-direction: column;
+		.left {
+			padding: 0;
+			width: 100%;
+		}
+		.right {
+			margin-top: 40px;
+			width: 100%;
+			.descrProd {
+				margin-bottom: 20px;
+				p {
+					margin-bottom: 20px !important;
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	.item {
+		.btns {
+			button {
+				height: 50px;
+				font-size: 18px;
+			}
+			img {
+				width: 20px;
+			}
+		}
+		.right {
+			.rate {
+				flex-wrap: wrap;
+			}
+			.buy {
+				.paymentType {
+					padding: 20px;
+					.oneTime {
+						.payTitle {
+							font-size: 18px;
+						}
+					}
+					.subscribe {
+						.payTitle {
+							font-size: 16px;
+						}
+					}
+				}
+				.paymentTitle {
+					font-size: 24px;
+				}
+			}
+			.title {
+				font-size: 26px;
+			}
+		}
+	}
+}

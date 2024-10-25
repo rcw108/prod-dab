@@ -1,0 +1,51 @@
+.authInput {
+	width: 100%;
+	display: block;
+	margin-bottom: 22px;
+	.box {
+		position: relative;
+	}
+	.title {
+		margin-bottom: 5px;
+		color: #111;
+		font-size: 14px;
+		font-weight: 600;
+		position: relative;
+		display: inline-block;
+		margin-bottom: 15px;
+		&::after {
+			content: '*';
+			color: #df0202;
+			font-size: 14px;
+			font-weight: 600;
+			margin-left: 5px;
+		}
+	}
+	input {
+		padding: 0.5180469716em;
+		width: 100%;
+		outline: none;
+		margin-bottom: 0;
+		border-width: 1px;
+		border-radius: 0.3rem;
+		box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+		border: 1px solid #d2d6dc;
+		font-size: 15px;
+		padding-left: 0.7em;
+		padding-right: 0.7em;
+		color: #000;
+		&:focus {
+			outline: none;
+		}
+	}
+	.show {
+		position: absolute;
+		content: url('/eye.svg');
+		right: 10px;
+		top: 50%;
+		transform: translateY(-50%);
+		width: 15px;
+		height: 15px;
+		cursor: pointer;
+	}
+}

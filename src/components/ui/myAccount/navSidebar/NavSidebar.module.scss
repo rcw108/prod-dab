@@ -1,0 +1,30 @@
+.navUser {
+	nav {
+		ul {
+			li {
+				padding: 0.675em 0 0.775em 0;
+				font-size: 15px;
+				font-weight: 300;
+				border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+				color: #fff;
+				img {
+					opacity: 0.35;
+				}
+				a {
+					color: #fff;
+					@apply flex justify-between items-center;
+					&.active {
+						font-weight: 600;
+						img {
+							opacity: 1;
+						}
+					}
+				}
+
+				.logout {
+					@apply flex justify-between items-center cursor-pointer;
+				}
+			}
+		}
+	}
+}

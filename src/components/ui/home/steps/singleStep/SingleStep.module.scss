@@ -1,0 +1,48 @@
+.singleStep {
+	padding: 10px 41px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	.img {
+		margin-bottom: 40px;
+
+		img {
+			border-radius: 50%;
+		}
+	}
+
+	.title {
+		@apply mb-5 text-center text-text-black;
+	}
+
+	.descr {
+		@apply text-center text-text-black;
+	}
+}
+
+@media (max-width: 1240px) {
+	.singleStep {
+		padding: 10px 15px 10px 15px;
+	}
+}
+
+@media (max-width: 1024px) {
+	.singleStep {
+		.title {
+			font-size: 22px;
+		}
+		.descr {
+			font-weight: 400;
+		}
+	}
+}
+
+@media (max-width: 769px) {
+	.singleStep {
+		padding: 0;
+		.img {
+			max-width: 180px;
+		}
+	}
+}

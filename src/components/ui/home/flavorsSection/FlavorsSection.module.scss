@@ -1,0 +1,192 @@
+.flavors {
+	.box {
+		margin-top: 78px;
+		padding-top: 58px;
+		padding-left: 87px;
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+		@apply flex justify-between;
+		border-radius: 30px;
+
+		.left {
+			width: 39%;
+			padding: 10px 10px 60px 10px;
+
+			.title {
+				@apply uppercase text-text-black mb-5;
+			}
+
+			.descr {
+				@apply text-text-black;
+
+				p {
+					margin-bottom: 15px;
+				}
+			}
+
+			.btn {
+				margin-top: 18px;
+			}
+
+			.review {
+				margin-top: 36px;
+				padding: 24px;
+				max-width: 508px;
+				border-radius: 14px;
+				background-color: #fff;
+
+				.reviewTitle {
+					font-size: 18px;
+					text-transform: uppercase;
+				}
+
+				.reviewDescr {
+					margin-top: 10px;
+					font-size: 20px;
+					color: #0d0d0db3;
+				}
+
+				.info {
+					@apply flex justify-between items-center;
+
+					.nameBlock {
+						@apply flex items-center gap-4;
+					}
+
+					.name {
+						color: #0d0d0d;
+					}
+				}
+			}
+		}
+
+		.right {
+			width: 61%;
+			.img {
+				width: 100%;
+				position: relative;
+				min-height: 553px;
+			}
+		}
+	}
+	.boxMobile {
+		display: none;
+	}
+}
+
+@media (max-width: 1240px) {
+	.flavors {
+		.box {
+			.right {
+				.img {
+					min-height: 453px;
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 1024px) {
+	.flavors {
+		.box {
+			padding: 58px 0 0 30px;
+			margin-top: 45px;
+			margin-bottom: 45px;
+			.right {
+				.img {
+					min-height: 305px;
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	.flavors {
+		.box {
+			display: none;
+			padding: 58px 0 0 30px;
+			margin-top: 45px;
+			margin-bottom: 45px;
+			.right {
+				.img {
+					min-height: 305px;
+				}
+			}
+		}
+		.boxMobile {
+			border-radius: 10px;
+			padding: 20px;
+			display: block;
+			.img {
+				position: relative;
+				height: 411px;
+			}
+			.btn {
+				width: 100%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			.title {
+				text-align: center;
+				color: #000;
+				margin-bottom: 20px;
+			}
+			.descr {
+				text-align: center;
+				color: #000;
+				font-weight: 400;
+				p {
+					margin-bottom: 20px;
+				}
+			}
+			.review {
+				margin-top: 36px;
+				padding: 24px;
+				max-width: 508px;
+				border-radius: 14px;
+				background-color: #fff;
+
+				.reviewTitle {
+					font-size: 18px;
+					text-transform: uppercase;
+				}
+
+				.reviewDescr {
+					margin-top: 10px;
+					font-size: 20px;
+					color: #0d0d0db3;
+				}
+
+				.info {
+					@apply flex justify-between items-center;
+
+					.nameBlock {
+						@apply flex items-center gap-4;
+					}
+
+					.name {
+						color: #0d0d0d;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 575px) {
+	.flavors {
+		.boxMobile {
+			.img {
+				height: 211px;
+			}
+			.review {
+				.reviewDescr {
+					font-size: 16px;
+				}
+			}
+		}
+	}
+}

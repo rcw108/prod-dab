@@ -1,0 +1,37 @@
+.policy {
+	max-width: 1150px;
+	padding: 50px 0 70px 0;
+	.title {
+		h2 {
+			@apply font-mont;
+			color: #000;
+			font-size: 40px;
+			font-weight: 700;
+			margin-bottom: 20px;
+		}
+		p {
+			color: #000;
+			margin-bottom: 25px;
+			display: block;
+			font-weight: 400;
+			font-size: 16px;
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+}
+
+@media (max-width: 1024px) {
+	.policy {
+		padding: 0px 20px 50px 20px;
+		.title {
+			h2 {
+				font-size: 32px;
+			}
+			p {
+				font-size: 14px;
+			}
+		}
+	}
+}

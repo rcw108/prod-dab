@@ -1,0 +1,16 @@
+.single {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	align-items: center;
+	justify-content: center;
+	padding: 10px 27.5px 10px 27.5px;
+
+	.title {
+		@apply uppercase text-text-white text-center text-[28px];
+	}
+
+	.descr {
+		@apply text-center;
+	}
+}

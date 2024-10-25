@@ -1,0 +1,47 @@
+.box {
+	padding: 88px 97px 88px 97px;
+	background-repeat: no-repeat;
+	border-radius: 30px;
+	background-size: cover;
+	background-position: center;
+
+	.title {
+		color: #010101;
+		@apply font-oswald font-light uppercase text-center;
+		font-size: 42px;
+		line-height: 1.2;
+		letter-spacing: 2.1px;
+	}
+	.subtitle {
+		@apply text-center font-sofia-sans font-medium;
+		color: #010101;
+		font-size: 18px;
+		margin-bottom: 50px;
+		margin-top: 34px;
+	}
+	.btns {
+		@apply flex justify-center;
+		a {
+			padding: 16px 90px 13px 90px;
+		}
+	}
+}
+
+@media (max-width: 1024px) {
+	.box {
+		padding: 20px;
+	}
+}
+
+@media (max-width: 768px) {
+	.box {
+		.title {
+			font-size: 26px;
+		}
+		.btns {
+			a {
+				padding: 16px 60px 13px 60px;
+			}
+		}
+	}
+}

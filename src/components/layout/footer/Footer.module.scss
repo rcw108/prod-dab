@@ -1,0 +1,151 @@
+.footer {
+	margin-top: 88px;
+	.container {
+		max-width: 1275px;
+		padding: 0 15px;
+		margin: 0 auto;
+
+		.top {
+			display: flex;
+			justify-content: space-between;
+			flex-wrap: wrap;
+			margin: 0 -49px;
+			padding: 0 0 50px;
+			.firstCol {
+				width: 37.41%;
+				padding: 0 49px;
+
+				.firstColLogo {
+					@apply mb-[35px];
+				}
+
+				.firstColText {
+					font-size: 16px;
+					line-height: 1.4;
+					font-weight: 300;
+				}
+
+				.firstColBanks {
+					@apply my-[29px];
+				}
+
+				.firstColCopy {
+					font-weight: 700;
+					font-size: 16px;
+					line-height: 1.4;
+				}
+			}
+			.secondCol {
+				width: 18.38%;
+				padding: 0 49px;
+			}
+			.thirdCol {
+				width: 26.11%;
+				padding: 0 49px;
+			}
+			.fourthCol {
+				width: 18.1%;
+				padding: 0 49px;
+			}
+		}
+	}
+
+	.bottom {
+		padding: 50px 0 88px;
+		border-top: 1px solid rgb(255 255 255 / 20%);
+
+		.bottomTitle {
+			@apply text-text-white mb-5;
+			font-size: 22px;
+			font-weight: 700;
+		}
+
+		.bottomText {
+			font-size: 14px;
+			font-weight: 300;
+			line-height: 1.4;
+		}
+	}
+
+	.colTitle {
+		@apply text-text-white mb-[35px] font-oswald;
+		font-size: 22px;
+		font-weight: 700;
+		line-height: 1;
+	}
+}
+
+@media (max-width: 1300px) {
+	.footer {
+		.container {
+			max-width: 100%;
+			padding-left: 20px;
+			padding-right: 20px;
+			.top {
+				margin: 0;
+			}
+		}
+	}
+}
+
+@media (max-width: 1024px) {
+	.footer {
+		margin-top: 35px;
+		.container {
+			.top {
+				.firstCol {
+					width: 50%;
+					padding: 0;
+					padding-right: 49px;
+				}
+				.secondCol {
+					width: 50%;
+					padding: 0;
+					padding-left: 49px;
+				}
+				.thirdCol {
+					margin-top: 20px;
+					width: 50%;
+					padding: 0;
+					padding-right: 49px;
+				}
+				.fourthCol {
+					margin-top: 20px;
+					width: 50%;
+					padding: 0;
+					padding-left: 49px;
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	.footer {
+		margin-top: 35px;
+		.container {
+			.top {
+				.firstCol {
+					width: 100%;
+					padding: 0;
+					margin-bottom: 20px;
+				}
+				.secondCol {
+					width: 100%;
+					padding: 0;
+					margin-bottom: 20px;
+				}
+				.thirdCol {
+					width: 100%;
+					padding: 0;
+					margin-bottom: 20px;
+				}
+				.fourthCol {
+					margin-bottom: 20px;
+					width: 100%;
+					padding: 0;
+				}
+			}
+		}
+	}
+}

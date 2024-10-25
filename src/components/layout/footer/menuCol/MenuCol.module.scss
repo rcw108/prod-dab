@@ -1,0 +1,35 @@
+.menu {
+	.menuItem {
+		margin-bottom: 12px;
+		font-weight: 300;
+		font-size: 16px;
+		line-height: 1;
+		a {
+			font-weight: 300;
+			font-size: 16px;
+			line-height: 1;
+			position: relative;
+			&::after {
+				display: block;
+				position: absolute;
+				top: calc(100% + 2px);
+				left: 0;
+				width: 100%;
+				border-bottom: 1px solid #ccc;
+				border-bottom-color: rgb(204, 204, 204);
+				content: '';
+				transition: transform 0.6s cubic-bezier(0.28, 0.75, 0.22, 0.95);
+				transform: scale(0, 1);
+				transform-origin: right center;
+				border-color: #fff;
+			}
+			&:hover {
+				&::after {
+					transform-origin: left center;
+					transform: scale(1, 1);
+					transition: transform 0.3s cubic-bezier(0.28, 0.75, 0.22, 0.95);
+				}
+			}
+		}
+	}
+}

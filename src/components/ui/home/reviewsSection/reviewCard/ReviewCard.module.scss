@@ -1,0 +1,56 @@
+.review {
+	margin: 0 15px;
+	margin-top: 30px;
+	background-color: #fff;
+	border-radius: 14px;
+	padding: 46px 28px 28px 28px;
+	position: relative;
+	.quote {
+		position: absolute;
+		top: -30px;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 60px;
+		height: 60px;
+		background: url('/quote.svg') no-repeat;
+		background-size: contain;
+	}
+	.text {
+		color: #0d0d0d99;
+
+		img {
+			width: 18px;
+			height: 18px;
+		}
+	}
+	.rate {
+		display: flex;
+		justify-content: center;
+		gap: 5px;
+		margin-bottom: 10px;
+	}
+	.text {
+		display: inline;
+		text-align: center;
+		img {
+			display: inline;
+		}
+	}
+	.name {
+		@apply text-text-black text-center mt-3;
+	}
+}
+
+@media (max-width: 567px) {
+	.review {
+		padding: 46px 10px 10px 10px;
+		.rate {
+			flex-wrap: wrap;
+		}
+	}
+	.text {
+		p {
+			width: 100% !important;
+		}
+	}
+}

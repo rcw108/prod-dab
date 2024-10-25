@@ -1,0 +1,51 @@
+.firstCategoryTab,
+.secondCategoryTab {
+	display: none;
+	position: relative;
+}
+
+.active {
+	display: block;
+}
+
+.tabs {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 54px;
+	margin-top: 29px;
+
+	.box {
+		border-radius: 65px;
+		border: 1px solid #ffffff5c;
+		display: flex;
+	}
+
+	.tab {
+		border-style: none;
+		border-radius: 65px 65px 65px 65px;
+		padding: 12px 30px 12px 30px;
+		transition: all 0.5s ease-in-out;
+		cursor: pointer;
+		h6 {
+			font-size: 18px;
+			font-weight: 700;
+			line-height: 1.2;
+			color: #fff;
+			text-transform: uppercase;
+			@apply font-sofia-sans;
+		}
+
+		&.activeTab {
+			h6 {
+				color: #000;
+			}
+			background-color: #fff;
+		}
+	}
+}
+
+@media (max-width: 1024px) {
+	.tabs {
+		flex-wrap: wrap;
+	}
+}

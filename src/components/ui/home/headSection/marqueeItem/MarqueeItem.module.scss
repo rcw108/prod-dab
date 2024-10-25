@@ -1,0 +1,21 @@
+.item {
+	margin: 0 40px;
+	display: flex;
+	align-items: center;
+	gap: 18px;
+	color: rgb(10, 10, 10);
+	position: relative;
+	&::after {
+		position: absolute;
+		content: '';
+		width: 1px;
+		height: 29px;
+		background-color: rgba(10, 10, 10, 0.2);
+		right: -40px;
+	}
+	.icon {
+		position: relative;
+		width: 40px;
+		height: 40px;
+	}
+}

@@ -1,0 +1,33 @@
+.topBar {
+	background: transparent linear-gradient(270deg, #3cb7ad 0%, #9cce50 100%) 0%
+		0% no-repeat padding-box;
+	padding: 17px 15px 17px 15px;
+	height: 64px;
+	display: flex;
+	justify-content: center;
+	gap: 10px;
+	align-items: center;
+	.title {
+		@apply font-oswald;
+		color: #ffffff;
+		font-size: 20px;
+		font-weight: 500;
+		line-height: 1.5em;
+	}
+}
+
+.logotype {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 157px;
+}
+
+@media (max-width: 768px) {
+	.topBar {
+		text-align: center;
+		.title {
+			font-size: 16px;
+		}
+	}
+}

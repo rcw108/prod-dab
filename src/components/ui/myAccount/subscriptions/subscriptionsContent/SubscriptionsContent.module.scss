@@ -1,0 +1,132 @@
+.subs {
+	.noSub {
+		background-color: #3d9cd2;
+		min-height: 57px;
+		width: 100%;
+		font-size: 16px;
+		color: #fff;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 1em 1.618em;
+		border-left: 0.6180469716em solid rgba(0, 0, 0, 0.15);
+		border-radius: 2px;
+
+		a {
+			text-decoration: underline;
+			font-weight: 600;
+			font-size: 16px;
+			padding: 0 0 0 1em;
+			border-width: 0 0 0 1px;
+			border-left-style: solid;
+			border-left-color: rgba(255, 255, 255, 0.25);
+		}
+	}
+	.subHead,
+	.subBody {
+		display: flex;
+		align-items: center;
+		color: #fff;
+		font-weight: 400;
+		border-bottom: 1px solid #eee;
+		padding-bottom: 15px;
+		.order {
+			width: 20%;
+		}
+		.date {
+			width: 15%;
+		}
+		.status {
+			width: 25%;
+			text-align: left;
+		}
+		.total {
+			width: 20%;
+			text-align: left;
+		}
+		.action {
+			width: 20%;
+			text-align: right;
+		}
+	}
+	.subBody {
+		padding: 15px 0;
+		font-weight: 300;
+		font-size: 16px;
+		.order {
+			@apply font-oswald;
+			color: #1e68c4;
+			transition: all 0.3s ease-in-out;
+			cursor: pointer;
+			&:hover {
+				color: #fff;
+			}
+		}
+		.status {
+			text-transform: capitalize;
+		}
+		.action {
+			display: flex;
+			align-items: center;
+			justify-content: flex-end;
+			gap: 5px;
+			.view {
+				background-color: #222;
+				transition: all 0.3s ease-in-out;
+				padding: 5px 10px;
+				color: #fff;
+				border-radius: 3px;
+				font-size: 12px;
+				cursor: pointer;
+				&:hover {
+					background-color: #000;
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	.subs {
+		.subHead {
+			display: none;
+		}
+		.subBody {
+			flex-direction: column;
+			border: none;
+			padding: 15px 0;
+			.order,
+			.date,
+			.status,
+			.total {
+				border-bottom: 1px solid #fff;
+				padding-top: 5px;
+			}
+			.order {
+				width: 100%;
+				padding-bottom: 15px;
+			}
+			.date {
+				width: 100%;
+				padding-bottom: 15px;
+			}
+			.status {
+				width: 100%;
+				padding-bottom: 15px;
+			}
+			.total {
+				width: 100%;
+				padding-bottom: 15px;
+			}
+			.action {
+				width: 100%;
+				padding-bottom: 15px;
+			}
+
+			.action {
+				justify-content: flex-start;
+				margin-top: 10px;
+			}
+		}
+	}
+}

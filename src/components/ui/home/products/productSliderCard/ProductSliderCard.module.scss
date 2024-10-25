@@ -1,0 +1,91 @@
+.card {
+	border: 1px solid #fff3;
+	border-radius: 14px;
+	.img {
+		@apply pt-[4px] px-[28px];
+	}
+
+	.title {
+		@apply text-center text-[24px] my-4;
+		font-weight: 600;
+	}
+	.info {
+		padding: 14px 28px 25px 28px;
+
+		.price {
+			@apply text-center;
+			font-size: 20px;
+
+			del {
+				color: #ffffff80;
+			}
+
+			ins {
+				text-decoration: none;
+			}
+		}
+
+		.description {
+			display: flex;
+			gap: 5px;
+		}
+
+		.stars {
+			display: flex;
+			gap: 5px;
+			justify-content: center;
+			height: 20px;
+
+			.starItem {
+				width: 19px;
+				height: 100%;
+				position: relative;
+			}
+		}
+	}
+
+	.btns {
+		margin-top: 10px;
+		.btn {
+			@apply flex gap-2 uppercase justify-center items-center font-sofia-sans;
+			font-size: 26px;
+			font-weight: 700;
+			padding: 14px 25px;
+			background-color: #f87212;
+			display: flex;
+			border-radius: 11px;
+		}
+	}
+}
+
+.slide {
+	background-image: url('/product-bg.webp');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	.title {
+		color: rgb(34, 34, 34);
+	}
+
+	.info {
+		.description {
+			color: #0d0d0d;
+		}
+
+		.price {
+			del {
+				color: rgba(13, 13, 13, 0.5);
+			}
+			ins {
+				color: #0d0d0d;
+			}
+		}
+	}
+}
+
+@media (max-width: 567px) {
+	.slide {
+		margin: 0 20px;
+	}
+}

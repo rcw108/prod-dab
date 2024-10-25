@@ -1,0 +1,36 @@
+.wrap {
+	background-color: #0d0d0d;
+	padding-top: 30px;
+	margin-bottom: 50px;
+	.profileWrapper {
+		display: grid;
+		max-width: 1140px;
+		margin: 0 auto;
+		padding: 10px;
+		grid-template-columns: 197px 856px;
+		column-gap: 66px;
+	}
+}
+
+@media (max-width: 1240px) {
+	.wrap {
+		.profileWrapper {
+			max-width: 100%;
+			grid-template-columns: 1fr 3fr;
+			padding: 0 10px;
+			column-gap: 30px;
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	.wrap {
+		padding: 0 10px;
+		padding-top: 40px;
+		.profileWrapper {
+			grid-template-columns: 1fr;
+			column-gap: 0;
+			row-gap: 40px;
+		}
+	}
+}

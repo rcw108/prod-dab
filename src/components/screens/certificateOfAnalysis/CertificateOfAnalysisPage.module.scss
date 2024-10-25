@@ -1,0 +1,45 @@
+.title {
+	@apply font-rockstar !important;
+	letter-spacing: -1.3px !important;
+	color: #ffffff !important;
+	font-size: 70px !important;
+	font-weight: 700 !important;
+	max-width: 61%;
+	line-height: 1 !important;
+}
+
+.textContent {
+	background-color: #fff;
+	padding: 40px 0;
+	.text {
+		text-align: center;
+		color: #000000;
+		@apply font-second;
+		font-size: 19px;
+		max-width: 1140px;
+		margin: 0 auto;
+		p {
+			margin-bottom: 26px;
+		}
+	}
+}
+
+@media (max-width: 1024px) {
+	.title {
+		font-size: 50px !important;
+	}
+}
+
+@media (max-width: 768px) {
+	.title {
+		font-size: 30px !important;
+	}
+	.textContent {
+		padding: 40px 20px;
+		.text {
+			font-size: 16px;
+			text-align: left;
+			max-width: 100%;
+		}
+	}
+}

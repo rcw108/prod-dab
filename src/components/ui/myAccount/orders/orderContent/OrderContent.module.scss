@@ -1,0 +1,89 @@
+.table {
+	.tableHead,
+	.tableBodyItem {
+		display: flex;
+		align-items: center;
+		color: #fff;
+		font-weight: 400;
+		border-bottom: 1px solid #eee;
+		padding-bottom: 15px;
+		.order {
+			width: 15%;
+		}
+		.date {
+			width: 20%;
+		}
+		.status {
+			width: 20%;
+			text-align: left;
+		}
+		.total {
+			width: 15%;
+			text-align: left;
+		}
+		.action {
+			width: 30%;
+			text-align: right;
+		}
+	}
+	.tableBodyItem {
+		padding: 15px 0;
+		font-weight: 300;
+		font-size: 16px;
+		.order {
+			@apply font-oswald;
+			color: #1e68c4;
+			transition: all 0.3s ease-in-out;
+			cursor: pointer;
+			&:hover {
+				color: #fff;
+			}
+		}
+		.action {
+			display: flex;
+			align-items: center;
+			justify-content: flex-end;
+			gap: 5px;
+			.view {
+				background-color: #222;
+				transition: all 0.3s ease-in-out;
+				padding: 5px 10px;
+				color: #fff;
+				border-radius: 3px;
+				font-size: 12px;
+				cursor: pointer;
+				&:hover {
+					background-color: #000;
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	.table {
+		.tableHead {
+			display: none;
+		}
+		.tableBodyItem {
+			flex-direction: column;
+			border: none;
+			.order,
+			.date,
+			.status,
+			.total,
+			.action {
+				width: 100%;
+				padding-bottom: 10px;
+				border-bottom: 1px solid #fff;
+			}
+			.action {
+				margin-top: 10px;
+				padding: 0;
+				margin-bottom: 10px;
+				justify-content: flex-start;
+				border: none;
+			}
+		}
+	}
+}

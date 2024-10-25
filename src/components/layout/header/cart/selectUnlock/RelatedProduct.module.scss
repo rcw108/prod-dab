@@ -1,0 +1,81 @@
+.select {
+	padding: 8px;
+	border: 1px solid #cbddee;
+	border-radius: 8px;
+	margin-top: 8px;
+	margin-bottom: 8px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	.img {
+		display: block;
+		min-width: 51px;
+		margin-right: 8px;
+	}
+
+	.name {
+		margin-bottom: 6px;
+		line-height: 1.3em;
+		font-size: 14px;
+		font-weight: 400;
+	}
+
+	.price {
+		line-height: 1.3em;
+		font-size: 14px;
+		font-weight: bold;
+		color: #000;
+		margin-bottom: 10px;
+		small {
+			display: none;
+		}
+		del {
+			font-weight: 300;
+			span {
+				font-weight: 300;
+			}
+		}
+		bdi {
+			text-decoration: none;
+			span {
+				text-decoration: none;
+			}
+		}
+		> span {
+			display: none;
+		}
+	}
+
+	select {
+		appearance: none;
+		border: 1px solid black;
+		border-radius: 4px;
+		font-size: 14px;
+		color: #000;
+		padding: 2px 10px;
+		padding-right: 10px;
+		padding-right: 24px;
+		cursor: pointer;
+		margin-top: 0;
+		background-image: url('https://cdn.shopify.com/s/files/1/0605/3960/0974/files/pngwing.com.png?v=1720158921');
+		background-size: 12px;
+		background-position: 95%;
+		background-repeat: no-repeat;
+		width: 100%;
+	}
+
+	.btn {
+		padding: 4px 16px;
+		border-radius: 4px;
+		background: #f87212;
+		color: white;
+		font-size: 16px;
+		border: none;
+		cursor: pointer;
+		outline: none;
+		font-weight: bold;
+		min-width: 75px;
+		margin-left: 10px;
+	}
+}

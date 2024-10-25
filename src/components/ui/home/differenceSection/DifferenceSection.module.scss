@@ -1,0 +1,42 @@
+.difference {
+	margin-top: 70px;
+
+	.wrapper {
+		position: relative;
+	}
+
+	.title {
+		@apply mb-5 text-center uppercase;
+	}
+
+	.descr {
+		@apply text-center mb-10;
+	}
+
+	.box {
+		@apply grid;
+		grid-template-columns: repeat(4, 1fr);
+	}
+
+	.btns {
+		@apply flex justify-center;
+	}
+}
+
+@media (max-width: 1024px) {
+	.difference {
+		.box {
+			grid-template-columns: repeat(2, 1fr);
+			gap: 20px;
+		}
+	}
+}
+
+@media (max-width: 769px) {
+	.difference {
+		.box {
+			grid-template-columns: repeat(1, 1fr);
+			gap: 20px;
+		}
+	}
+}

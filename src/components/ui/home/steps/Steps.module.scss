@@ -1,0 +1,45 @@
+.steps {
+	.box {
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		padding: 69px 30px 78px 30px;
+		border-radius: 30px;
+	}
+
+	.title {
+		@apply text-center text-text-black uppercase mb-5;
+	}
+
+	.descr {
+		@apply text-center text-text-black mb-10;
+	}
+
+	.text {
+		@apply text-center text-text-black mb-10;
+	}
+
+	.info {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	.btns {
+		margin-top: 43px;
+		display: flex;
+		justify-content: center;
+	}
+}
+
+@media (max-width: 769px) {
+	.steps {
+		.box {
+			padding: 18px 20px 24px 20px;
+		}
+
+		.info {
+			grid-template-columns: 1fr;
+			row-gap: 20px;
+		}
+	}
+}

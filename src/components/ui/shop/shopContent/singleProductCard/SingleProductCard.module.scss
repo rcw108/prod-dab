@@ -1,0 +1,176 @@
+.card {
+	border-radius: 16px;
+	border: 1px solid white;
+	-webkit-transition: all 0.5s ease-out;
+	-o-transition: all 0.5s ease-out;
+	transition: all 0.5s ease-out;
+	position: relative;
+	overflow: hidden;
+	height: 100%;
+	padding: 12px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+
+	&:hover {
+		.price {
+			del {
+				color: rgb(10 10 10 / 50%);
+				span {
+					color: rgb(10 10 10 / 50%);
+				}
+			}
+			ins {
+				color: #000;
+				span {
+					color: #000;
+				}
+			}
+		}
+	}
+
+	.img {
+		border-radius: 8px;
+		img {
+			margin: 0 auto;
+			margin-bottom: 10px;
+		}
+	}
+
+	.content {
+		.title {
+			@apply text-text-white text-center my-[22px] font-oswald;
+			font-size: 18px;
+			color: #fff;
+			margin: 4px 0;
+			line-height: 1.2em;
+			font-weight: bold;
+			min-height: 44px;
+		}
+
+		.priceSave {
+			margin-top: 20px;
+			display: flex;
+			align-items: center;
+			gap: 5px;
+		}
+
+		.price {
+			del {
+				color: #ffffff80;
+				font-size: 20px;
+				font-weight: 700;
+				span {
+					color: #ffffff80;
+				}
+			}
+			ins {
+				color: #fff;
+				text-decoration: none;
+				font-size: 20px;
+				font-weight: 700;
+				span {
+					color: #fff;
+					text-decoration: none;
+				}
+			}
+			small {
+				display: none;
+			}
+		}
+	}
+
+	.btn {
+		display: block;
+		width: 100%;
+		border: 2px solid #f77214;
+		background: #f77214;
+		border-radius: 4px;
+		padding: 6px;
+		font-size: 18px;
+		font-weight: 500;
+		color: white;
+		cursor: pointer;
+		transition: all 0.1s;
+		text-align: center;
+		text-transform: uppercase;
+		@apply font-sofia-sans;
+		margin-top: 10px;
+
+		&:hover {
+			background-color: transparent;
+			color: #f77214;
+		}
+	}
+}
+
+.save {
+	font-size: 14px;
+	color: #fff;
+	background: linear-gradient(
+		90deg,
+		rgba(154, 206, 84, 1) 0%,
+		rgba(60, 183, 172, 1) 100%
+	);
+	border-radius: 16px;
+	padding: 2px 8px;
+	font-weight: 600;
+	display: inline-block;
+}
+@media (max-width: 676px) {
+	.card {
+		.content {
+			.priceSave {
+				.price {
+					font-size: 13px;
+					span {
+						font-size: 13px;
+					}
+				}
+			}
+		}
+	}
+	.save {
+		font-size: 13px;
+		p {
+			font-size: 13px;
+		}
+	}
+}
+
+@media (max-width: 565px) {
+	.card {
+		.img {
+			width: 125px;
+			height: 125px;
+			margin: 0 auto;
+		}
+		padding: 8px;
+		.content {
+			.title {
+				font-size: 14px;
+			}
+			.priceSave {
+				margin-top: 10px;
+				flex-wrap: wrap;
+				.price {
+					font-size: 13px;
+					span {
+						font-size: 13px;
+					}
+				}
+			}
+		}
+		.btn {
+			margin-top: 10px;
+			font-size: 12px;
+			padding: 6px;
+		}
+	}
+	.save {
+		font-size: 13px;
+		p {
+			font-size: 13px;
+		}
+	}
+}

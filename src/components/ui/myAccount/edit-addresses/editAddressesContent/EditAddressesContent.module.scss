@@ -1,0 +1,78 @@
+.customerAddress {
+	.head {
+		font-size: 16px;
+		margin: 0 0 1.41575em;
+		font-weight: 300;
+	}
+	.wrap {
+		display: flex;
+		.billing {
+			width: 41.1764705882%;
+			margin-right: 5.8823529412%;
+		}
+		.shipping {
+			width: 52.9411764706%;
+			margin-right: 0;
+		}
+	}
+	.top {
+		margin-bottom: 10px;
+		display: flex;
+		width: 100%;
+		justify-content: space-between;
+		.title {
+			@apply font-sofia-sans;
+			font-weight: 400;
+			font-size: 24px;
+			letter-spacing: 0px;
+			text-transform: none;
+			line-height: 1.45;
+			color: #fff;
+		}
+		.edit {
+			margin-top: 5px;
+			background-color: #f6f6f6;
+			padding: 3px 12px;
+			border-radius: 20px;
+			font-size: 12px;
+			font-weight: 700;
+			transition: 0.2s all;
+			display: block;
+			color: #777;
+			&:hover {
+				color: #111;
+				background-color: #f2f2f2;
+			}
+		}
+	}
+	.address {
+		margin: 0 0 1.41575em;
+		color: #fff;
+		font-weight: 300;
+		display: flex;
+		flex-direction: column;
+		gap: 5px;
+		@apply font-oswald;
+		.add {
+			display: flex;
+			align-items: center;
+			gap: 7px;
+		}
+	}
+}
+
+@media (max-width: 1024px) {
+	.customerAddress {
+		.wrap {
+			flex-direction: column;
+			.billing {
+				width: 100%;
+				margin-right: 0;
+			}
+			.shipping {
+				width: 100%;
+				margin-right: 0;
+			}
+		}
+	}
+}

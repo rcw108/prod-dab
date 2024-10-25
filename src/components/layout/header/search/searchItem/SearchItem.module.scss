@@ -1,0 +1,39 @@
+.item {
+	display: flex;
+	padding: 10px;
+	gap: 20px;
+	cursor: pointer;
+	transition: 0.2s all;
+	border-bottom: 1px solid #d6d6d6;
+	border-bottom: 1px solid #d6d6d6;
+	&:hover {
+		background-color: #f8f8f8;
+	}
+	.img {
+		position: relative;
+		width: 60px;
+		height: 60px;
+	}
+	.title {
+		font-size: 14px;
+		font-weight: 400;
+	}
+	.descr {
+		color: #dc9814;
+		font-size: 14px;
+		del {
+			color: #999;
+			font-weight: 400;
+			span {
+				color: #999;
+				font-weight: 400;
+			}
+		}
+		small {
+			font-size: 10px;
+		}
+		> span {
+			font-size: 10px;
+		}
+	}
+}

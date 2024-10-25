@@ -1,0 +1,19 @@
+.item {
+	margin: 0 20px;
+	display: flex;
+	align-items: center;
+	gap: 18px;
+	color: #fff;
+	position: relative;
+	font-size: 26px;
+	margin: 0 15px;
+	gap: 25px;
+	font-weight: 700;
+	text-transform: uppercase;
+
+	.icon {
+		width: 30px;
+		height: 28px;
+		position: relative;
+	}
+}
