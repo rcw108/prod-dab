@@ -45,7 +45,16 @@ const VariableSinglePage: FC<IVariableSingle> = ({ data, template }) => {
 	return (
 		<main>
 			<VariableHeader acf={template.acf} product={data}>
-				<VariableCard {...data} product={data} />
+				<VariableCard
+					{...data}
+					product={data}
+					relax={template.acf.relax}
+					star_image={template.acf.star_image}
+					text_descr={template.acf.text_descr}
+					text_sp={template.acf.text_sp}
+					title_descr={template.acf.title_descr}
+					title_sp={template.acf.title_sp}
+				/>
 			</VariableHeader>
 			<Vibe
 				text_vibe={template.acf.text_vibe}

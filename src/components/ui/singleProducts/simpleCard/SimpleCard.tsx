@@ -17,7 +17,36 @@ import styles from './SimpleCard.module.scss'
 import Deliver from './deliver/Deliver'
 import ProductInfo from './productInfo/ProductInfo'
 
-const SimpleCard: FC<{ product: WooCommerceSingleProduct }> = ({ product }) => {
+interface ISimpleCard {
+	product: WooCommerceSingleProduct
+	author: string
+	review_text: string
+	star_image: string
+	rate_image: string
+	rate_text: string
+	title_subs: string
+	text_subs: string
+	title_sp: string
+	text_sp: string
+	title_descr: string
+	text_descr: string
+}
+
+const SimpleCard: FC<ISimpleCard> = ({
+	product,
+	author,
+	rate_image,
+	rate_text,
+	review_text,
+	star_image,
+	title_subs,
+	text_subs,
+	title_sp,
+	text_sp,
+	text_descr,
+	title_descr
+}) => {
+	console.log(author, review_text, star_image)
 	const [paymentType, setPaymentType] = useState<'one-time' | 'subscription'>(
 		'one-time'
 	)
@@ -76,29 +105,25 @@ const SimpleCard: FC<{ product: WooCommerceSingleProduct }> = ({ product }) => {
 			<div className={styles.left}>
 				<div className={styles.wrap}>
 					<ProductSlider images={product.images} />
-					{product.acf.author &&
-						product.acf.review_text &&
-						product.acf.star_image && (
-							<div className={styles.review}>
-								<ReviewShopCard
-									author={product.acf.author}
-									start_image={product.acf.star_image}
-									text={product.acf.review_text}
-								/>
-							</div>
-						)}
+					{author && review_text && star_image && (
+						<div className={styles.review}>
+							<ReviewShopCard
+								author={author}
+								start_image={star_image}
+								text={review_text}
+							/>
+						</div>
+					)}
 				</div>
 			</div>
 			<div className={styles.right}>
-				<div className={styles.rate}>
-					<Image
-						src={product.acf.rate_image}
-						alt='rate'
-						width={88}
-						height={16}
-					/>
-					<Description title={ReactHtmlParser(product.acf.rate_text)} />
-				</div>
+				{rate_image && rate_text && (
+					<div className={styles.rate}>
+						<Image src={rate_image} alt='rate' width={88} height={16} />
+						<Description title={ReactHtmlParser(rate_text)} />
+					</div>
+				)}
+
 				<SubHeading
 					className={styles.title}
 					title={ReactHtmlParser(product.name)}
@@ -200,7 +225,12 @@ const SimpleCard: FC<{ product: WooCommerceSingleProduct }> = ({ product }) => {
 					</div>
 				) : null}
 				<ProductInfo
-					acf={product.acf}
+					text_de={text_descr}
+					text_sp={text_sp}
+					text_subs={text_subs}
+					title_de={title_descr}
+					title_sp={title_sp}
+					title_subs={title_subs}
 					weight={product.weight}
 					dimensions={product.dimensions}
 				/>

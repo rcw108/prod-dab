@@ -42,7 +42,21 @@ const SimpleSinglePage: FC<ISimpleSingle> = ({ data, template }) => {
 	return (
 		<main>
 			<SingleHeader acf={template.acf} product={data}>
-				<SimpleCard {...data} product={data} />
+				<SimpleCard
+					{...data}
+					product={data}
+					author={template.acf.author}
+					rate_image={template.acf.rate_image}
+					rate_text={template.acf.rate_text}
+					review_text={template.acf.review_text}
+					star_image={template.acf.star_image}
+					text_sp={template.acf.text_sp}
+					text_subs={template.acf.text_subs}
+					title_sp={template.acf.title_sp}
+					title_subs={template.acf.title_subs}
+					title_descr={template.acf.title_descr}
+					text_descr={template.acf.text_descr}
+				/>
 			</SingleHeader>
 			<Steps
 				link_st={{ url: '', target: '', title: '' }}

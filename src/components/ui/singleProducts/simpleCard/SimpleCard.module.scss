@@ -15,6 +15,12 @@
 	}
 	.right {
 		width: 44.6%;
+		.descrProd {
+			margin-bottom: 20px;
+			p {
+				margin-bottom: 20px !important;
+			}
+		}
 		.rate {
 			@apply flex items-center gap-5;
 			font-weight: 300;

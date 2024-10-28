@@ -20,8 +20,24 @@ import styles from '../simpleCard/SimpleCard.module.scss'
 import { useVariableVariantProduct } from './useVariableVariantProduct'
 import stylesVar from './VariableCard.module.scss'
 
-const VariableCard: FC<{ product: WooCommerceSingleProduct }> = ({
-	product
+interface IVariableCard {
+	product: WooCommerceSingleProduct
+	title_descr: string
+	text_descr: string
+	star_image: string
+	title_sp: string
+	text_sp: string
+	relax: string
+}
+
+const VariableCard: FC<IVariableCard> = ({
+	product,
+	title_descr,
+	text_descr,
+	star_image,
+	title_sp,
+	text_sp,
+	relax
 }) => {
 	const [paymentType, setPaymentType] = useState<'one-time' | 'subscription'>(
 		'one-time'
@@ -150,10 +166,10 @@ const VariableCard: FC<{ product: WooCommerceSingleProduct }> = ({
 								/>
 							</div>
 						)}
-					{typeof product.acf.chart_image === 'string' && (
+					{relax && (
 						<Image
 							className='mt-10'
-							src={product.acf.chart_image}
+							src={relax}
 							alt='chart'
 							width={637}
 							height={357}
@@ -163,13 +179,8 @@ const VariableCard: FC<{ product: WooCommerceSingleProduct }> = ({
 			</div>
 			<div className={styles.right}>
 				<div className={styles.rate}>
-					<Image
-						src={product.acf.rate_image}
-						alt='rate'
-						width={88}
-						height={16}
-					/>
-					<Description title={ReactHtmlParser(product.acf.rate_text)} />
+					<Image src={star_image} alt='rate' width={120} height={21} />
+					{/* <Description title={ReactHtmlParser(product.acf.rate_text)} /> */}
 				</div>
 				<SubHeading
 					className={styles.title}
@@ -202,7 +213,10 @@ const VariableCard: FC<{ product: WooCommerceSingleProduct }> = ({
 						)}
 					</div>
 				</div>
-				<Description title={ReactHtmlParser(product.description)} />
+				<Description
+					className={stylesVar.descrProduct}
+					title={ReactHtmlParser(product.description)}
+				/>
 				{product.stock_status === 'instock' ? (
 					<div className={styles.buy}>
 						<div className={styles.paymentType}>
@@ -307,9 +321,12 @@ const VariableCard: FC<{ product: WooCommerceSingleProduct }> = ({
 				) : null}
 				<ProductInfo
 					attributes={product.attributes}
-					acf={product.acf}
 					weight={product.weight}
 					dimensions={product.dimensions}
+					text_de={text_descr}
+					text_sp={text_sp}
+					title_sp={title_sp}
+					title_de={title_descr}
 				/>
 			</div>
 		</div>

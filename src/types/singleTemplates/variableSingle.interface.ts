@@ -46,6 +46,12 @@ export interface VariableSingleACF {
 	text_rev: string
 	review_repeater: ReviewRepeater[]
 	dabpens_logo: string
+	title_descr: string
+	text_descr: string
+	star_image: string
+	title_sp: string
+	text_sp: string
+	relax: string
 }
 
 export interface VariableSingle {

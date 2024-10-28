@@ -69,44 +69,48 @@ const SingleProductCard: FC<WooCommerceSingleProduct> = ({
 
 	return (
 		<div className={styles.card}>
-			{images[0] && (
-				<div className={styles.img}>
-					<Image
-						priority
-						src={images[0].src}
-						alt={name}
-						width={220}
-						height={220}
-					/>
-				</div>
-			)}
-			<div className={styles.content}>
-				<Image
-					className='mb-3 block'
-					src={'/stars.svg'}
-					alt='stars'
-					width={88}
-					height={16}
-				/>
-				<Link href={`products/${slug}`} className={styles.title}>
-					{ReactHtmlParser(name)}
-				</Link>
-				<div className={styles.priceSave}>
-					<Description
-						className={clsx(styles.price, 'priceShop')}
-						title={ReactHtmlParser(price_html)}
-					/>
-					<div className={styles.save}>
-						<Description
-							title={
-								type === 'variable'
-									? String(`Save $${saveCount().toFixed(2)}`)
-									: String(`Save $${(+regular_price - +sale_price).toFixed(2)}`)
-							}
+			<Link href={`products/${slug}`}>
+				{images[0] && (
+					<div className={styles.img}>
+						<Image
+							priority
+							src={images[0].src}
+							alt={name}
+							width={220}
+							height={220}
 						/>
 					</div>
+				)}
+				<div className={styles.content}>
+					<Image
+						className='mb-3 block'
+						src={'/stars.svg'}
+						alt='stars'
+						width={88}
+						height={16}
+					/>
+					<Link href={`products/${slug}`} className={styles.title}>
+						{ReactHtmlParser(name)}
+					</Link>
+					<div className={styles.priceSave}>
+						<Description
+							className={clsx(styles.price, 'priceShop')}
+							title={ReactHtmlParser(price_html)}
+						/>
+						<div className={styles.save}>
+							<Description
+								title={
+									type === 'variable'
+										? String(`Save $${saveCount().toFixed(2)}`)
+										: String(
+												`Save $${(+regular_price - +sale_price).toFixed(2)}`
+											)
+								}
+							/>
+						</div>
+					</div>
 				</div>
-			</div>
+			</Link>
 			{type === 'simple' ? (
 				<div onClick={handleAddProduct} className={styles.btn}>
 					<span>Add to cart</span>

@@ -26,6 +26,22 @@ import styles from '../simpleCard/SimpleCard.module.scss'
 import stylesBun from './BundleCard.module.scss'
 import BundleSingleItem from './bundleSingleItem/BundleSingleItem'
 
+interface IBundleCard {
+	product: WooCommerceSingleProduct
+	loading: boolean
+	author: string
+	review_text: string
+	star_image: string
+	title_subs: string
+	text_subs: string
+	title_sp: string
+	text_sp: string
+	title_descr: string
+	text_descr: string
+	rate_image: string
+	rate_text: string
+}
+
 export interface BundleItemSingle {
 	name: string
 	id: number
@@ -40,10 +56,21 @@ export interface BundleItemSingle {
 	default_quantity: number
 }
 
-const BundleCard: FC<{
-	product: WooCommerceSingleProduct
-	loading: boolean
-}> = ({ product, loading }) => {
+const BundleCard: FC<IBundleCard> = ({
+	product,
+	loading,
+	author,
+	review_text,
+	star_image,
+	title_subs,
+	text_subs,
+	title_sp,
+	text_sp,
+	title_descr,
+	text_descr,
+	rate_image,
+	rate_text
+}) => {
 	const { products: allProducts } = useProducts()
 
 	const [paymentType, setPaymentType] = useState<'one-time' | 'subscription'>(
@@ -242,30 +269,23 @@ const BundleCard: FC<{
 			<div className={styles.left}>
 				<div className={styles.wrap}>
 					<ProductSlider images={product.images} />
-					{product.acf.author &&
-						product.acf.review_text &&
-						product.acf.star_image && (
-							<div className={styles.review}>
-								<ReviewShopCard
-									author={product.acf.author}
-									start_image={product.acf.star_image}
-									text={product.acf.review_text}
-								/>
-							</div>
-						)}
+					{author && review_text && star_image && (
+						<div className={styles.review}>
+							<ReviewShopCard
+								author={author}
+								start_image={star_image}
+								text={review_text}
+							/>
+						</div>
+					)}
 				</div>
 			</div>
 			<div className={styles.right}>
 				<div className={styles.rate}>
-					{product.acf.rate_image && (
-						<Image
-							src={product.acf.rate_image}
-							alt='rate'
-							width={88}
-							height={16}
-						/>
+					{rate_image && (
+						<Image src={rate_image} alt='rate' width={88} height={16} />
 					)}
-					<Description title={ReactHtmlParser(product.acf.rate_text)} />
+					<Description title={ReactHtmlParser(rate_text)} />
 				</div>
 				<SubHeading
 					className={styles.title}
@@ -395,9 +415,14 @@ const BundleCard: FC<{
 					</div>
 				) : null}
 				<ProductInfo
-					acf={product.acf}
 					weight={product.weight}
 					dimensions={product.dimensions}
+					text_de={text_descr}
+					text_sp={text_sp}
+					title_de={title_descr}
+					title_sp={title_sp}
+					text_subs={text_subs}
+					title_subs={title_subs}
 				/>
 			</div>
 		</div>

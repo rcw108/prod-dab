@@ -64,6 +64,15 @@ export interface SimpleSingleACF {
 	title_frm: string
 	description_frm: string
 	background_image_frm: string
+	author: string
+	review_text: string
+	star_image: string
+	title_subs: string
+	text_subs: string
+	title_sp: string
+	text_sp: string
+	title_descr: string
+	text_descr: string
 }
 
 export interface SimpleSingle {

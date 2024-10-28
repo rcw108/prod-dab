@@ -8,23 +8,34 @@ import styles from './ProductInfo.module.scss'
 import ProductInfoItem from './productInfoItem/ProductInfoItem'
 
 interface IProductInfo
-	extends Pick<WooCommerceSingleProduct, 'acf' | 'weight' | 'dimensions'> {
+	extends Pick<WooCommerceSingleProduct, 'weight' | 'dimensions'> {
 	attributes?: AttributesVar[]
+	title_de: string
+	text_de: string
+	title_subs?: string
+	text_subs?: string
+	text_sp: string
+	title_sp: string
 }
 
 const ProductInfo: FC<IProductInfo> = ({
-	acf,
 	weight,
 	dimensions,
-	attributes
+	attributes,
+	title_de,
+	text_de,
+	title_subs,
+	text_subs,
+	text_sp,
+	title_sp
 }) => {
 	return (
 		<div className={styles.info}>
-			{acf.title_de && acf.text_de && (
-				<ProductInfoItem text={acf.text_de} title={acf.title_de} />
+			{title_de && text_de && (
+				<ProductInfoItem text={text_de} title={title_de} />
 			)}
-			{acf.title_subs && acf.text_subs && (
-				<ProductInfoItem text={acf.text_subs} title={acf.title_subs} />
+			{title_subs && text_subs && (
+				<ProductInfoItem text={text_subs} title={title_subs} />
 			)}
 			{weight ||
 			(dimensions.length !== '' &&
@@ -58,8 +69,8 @@ const ProductInfo: FC<IProductInfo> = ({
 					)}
 				</ProductInfoItem>
 			) : null}
-			{acf.text_sp && acf.title_sp && (
-				<ProductInfoItem text={acf.text_sp} title={acf.title_sp} />
+			{text_sp && title_sp && (
+				<ProductInfoItem text={text_sp} title={title_sp} />
 			)}
 		</div>
 	)

@@ -89,11 +89,15 @@
 		padding: 6px;
 		font-size: 18px;
 		font-weight: 500;
+		height: 45px;
 		color: white;
 		cursor: pointer;
 		transition: all 0.1s;
 		text-align: center;
 		text-transform: uppercase;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 		@apply font-sofia-sans;
 		margin-top: 10px;
 
