@@ -12,10 +12,8 @@ import { SimpleSingle } from '@/types/singleTemplates/simpleSingle.interface'
 import { VariableSingle } from '@/types/singleTemplates/variableSingle.interface'
 import { WooCommerceSingleProduct } from '@/types/wooCommerce.interface'
 import { FC } from 'react'
-export const revalidate = 1800
-const SingleProductPage: FC<{ params: { slug: string } }> = async ({
-	params
-}) => {
+// export const revalidate = 1800
+const SingleProductPage: FC<{ params: { slug: string } }> = ({ params }) => {
 	return <div>Bundle</div>
 	if (!params || !params.slug) {
 		console.error('Slug is not defined')
