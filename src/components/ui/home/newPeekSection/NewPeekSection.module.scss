@@ -118,6 +118,27 @@
 	}
 }
 
+.skeletonPeek {
+	padding-bottom: 75px;
+	padding-top: 70px;
+	.top {
+		text-align: center;
+	}
+	.grid {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 20px;
+		max-width: 1140px;
+		margin: 0 auto;
+		margin-top: 40px;
+	}
+	.skeletonBtn {
+		display: flex;
+		justify-content: center;
+		margin-top: 40px;
+	}
+}
+
 @media (max-width: 1024px) {
 	.peek {
 		.box {
@@ -127,6 +148,12 @@
 					grid-column: 2/3;
 				}
 			}
+		}
+	}
+
+	.skeletonPeek {
+		.grid {
+			grid-template-columns: repeat(3, 1fr);
 		}
 	}
 }
@@ -139,6 +166,12 @@
 					grid-column: unset;
 				}
 			}
+		}
+	}
+
+	.skeletonPeek {
+		.grid {
+			grid-template-columns: repeat(2, 1fr);
 		}
 	}
 }
@@ -155,6 +188,12 @@
 					margin: 0 auto;
 				}
 			}
+		}
+	}
+
+	.skeletonPeek {
+		.grid {
+			grid-template-columns: repeat(1, 1fr);
 		}
 	}
 }
