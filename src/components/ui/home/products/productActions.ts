@@ -29,12 +29,12 @@ export const getAllProducts = cache(async (per_page: number = 100) => {
 	}
 })
 
-export const getSingleProductBySlug = cache(async (slug: string = '') => {
+export const getSingleProductBySlug = async (slug: string = '') => {
 	const response = await api.get('products', {
 		slug: slug
 	})
 	return response.data[0]
-})
+}
 
 export const getProductTags = cache(async () => {
 	const response: { data: Tag[] } = await api.get('products/tags')
