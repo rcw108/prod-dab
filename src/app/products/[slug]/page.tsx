@@ -21,21 +21,21 @@ const SingleProductPage: FC<{ params: { slug: string } }> = async ({
 	)
 
 	if (product.type !== 'variable' && product.type !== 'bundle') {
-		const pageTemplate: SimpleSingle = await fetch(simpleSingleProductUrl).then(
-			res => res.json()
-		)
+		const pageTemplate: SimpleSingle = await fetch(simpleSingleProductUrl)
+			.then(res => res.json())
+			.catch(err => console.log(err))
 		return <SimpleSinglePage template={pageTemplate} data={product} />
 	}
 	if (product.type === 'variable') {
-		const pageTemplate: VariableSingle = await fetch(
-			variableSingleProductUrl
-		).then(res => res.json())
+		const pageTemplate: VariableSingle = await fetch(variableSingleProductUrl)
+			.then(res => res.json())
+			.catch(err => console.log(err))
 		return <VariableSinglePage template={pageTemplate} data={product} />
 	}
 	if (product.type === 'bundle') {
-		const pageTemplate: BundleSingle = await fetch(bundleSingleProductUrl).then(
-			res => res.json()
-		)
+		const pageTemplate: BundleSingle = await fetch(bundleSingleProductUrl)
+			.then(res => res.json())
+			.catch(err => console.log(err))
 		return <BundleSinglePage template={pageTemplate} data={product} />
 	}
 	if (!product) {
