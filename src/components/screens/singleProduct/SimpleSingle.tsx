@@ -5,6 +5,7 @@ import FaqSection from '@/components/ui/home/faqSection/FaqSection'
 import FormSection from '@/components/ui/home/formSection/FormSection'
 import MarqueeItem from '@/components/ui/home/headSection/marqueeItem/MarqueeItem'
 import Steps from '@/components/ui/home/steps/Steps'
+import ReviewsContent from '@/components/ui/reviews/reviewsContent/ReviewsContent'
 import MarqueeLineSection from '@/components/ui/shop/marqueeLineSection/MarqueeLineSection'
 import AlsoLove from '@/components/ui/singleProducts/singleTemplate/alsoLove/AlsoLove'
 import Miss from '@/components/ui/singleProducts/singleTemplate/dontMiss/Miss'
@@ -15,7 +16,7 @@ import { useProducts } from '@/hooks/useProducts'
 import { usePushCookieUserCart } from '@/hooks/usePushCookieUserCart'
 import { SimpleSingle } from '@/types/singleTemplates/simpleSingle.interface'
 import { WooCommerceSingleProduct } from '@/types/wooCommerce.interface'
-import { FC, useEffect } from 'react'
+import { FC, Suspense, useEffect } from 'react'
 import Marquee from 'react-fast-marquee'
 import SimpleCard from '../../ui/singleProducts/simpleCard/SimpleCard'
 import SingleHeader from '../../ui/singleProducts/singleHeader/SingleHeader'
@@ -85,12 +86,14 @@ const SimpleSinglePage: FC<ISimpleSingle> = ({ data, template }) => {
 				marquee_line_bg={template.acf.move_section_background}
 				marquee_line_repeater={template.acf.content_move_s}
 			/>
-			{/* <ReviewsContent
-				className='bg-black'
-				classNameText='text-white'
-				classNameTitle={styles.titleContentShop}
-				classNamePag={styles.paginationShop}
-			/> */}
+			<Suspense fallback={<div>Loading...</div>}>
+				<ReviewsContent
+					className='bg-black'
+					classNameText='text-white'
+					classNameTitle={styles.titleContentShop}
+					classNamePag={styles.paginationShop}
+				/>
+			</Suspense>
 			<FaqSection
 				bg_f={template.acf.backgoround_faq}
 				faqs_f={template.acf.tabs_faq}

@@ -2,6 +2,7 @@
 
 import DifferenceSection from '@/components/ui/home/differenceSection/DifferenceSection'
 import FormSection from '@/components/ui/home/formSection/FormSection'
+import ReviewsSectionShop from '@/components/ui/shop/reviewSectionShop/ReviewSectionShop'
 import QATest from '@/components/ui/singleProducts/singleTemplate/qATest/QATest'
 import VariableCard from '@/components/ui/singleProducts/variableCard/VariableCard'
 import HowToUse from '@/components/ui/singleProducts/variableTemplate/howToUse/HowToUse'
@@ -13,7 +14,7 @@ import { useProducts } from '@/hooks/useProducts'
 import { usePushCookieUserCart } from '@/hooks/usePushCookieUserCart'
 import { VariableSingle } from '@/types/singleTemplates/variableSingle.interface'
 import { WooCommerceSingleProduct } from '@/types/wooCommerce.interface'
-import { FC, useEffect } from 'react'
+import { FC, Suspense, useEffect } from 'react'
 import VariableHeader from '../../ui/singleProducts/singleHeader/VariableHeader'
 import styles from './SingleStyles.module.scss'
 
@@ -79,11 +80,14 @@ const VariableSinglePage: FC<IVariableSingle> = ({ data, template }) => {
 				subtitle_qual={template.acf.subtitle_qual}
 				title_qual={template.acf.title_qual}
 			/>
-			{/* <ReviewsSectionShop
-				reviews_repeater={template.acf.review_repeater}
-				subtitle_review={template.acf.text_rev}
-				title_review={template.acf.title_rev}
-			/> */}
+			<Suspense fallback={<div>Loading...</div>}>
+				<ReviewsSectionShop
+					reviews_repeater={template.acf.review_repeater}
+					subtitle_review={template.acf.text_rev}
+					title_review={template.acf.title_rev}
+				/>
+			</Suspense>
+
 			<DifferenceSection
 				blocks_d={template.acf.content_diff}
 				link_d={template.acf.button_diff}
