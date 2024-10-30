@@ -1,5 +1,3 @@
-'use server'
-
 import BundleSinglePage from '@/components/screens/singleProduct/BundleSinglePage'
 import SimpleSinglePage from '@/components/screens/singleProduct/SimpleSingle'
 import VariableSinglePage from '@/components/screens/singleProduct/VariableSingle'
