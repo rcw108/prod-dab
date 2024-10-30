@@ -12,6 +12,7 @@ import QATest from '@/components/ui/singleProducts/singleTemplate/qATest/QATest'
 import { useActions } from '@/hooks/useActions'
 import { useGetAllSingleProducts } from '@/hooks/useGetAllSingleProducts'
 import { useProducts } from '@/hooks/useProducts'
+import { usePushCookieUserCart } from '@/hooks/usePushCookieUserCart'
 import { BundleSingle } from '@/types/singleTemplates/bundleSingle.interface'
 import { WooCommerceSingleProduct } from '@/types/wooCommerce.interface'
 import { FC, useEffect } from 'react'
@@ -26,7 +27,7 @@ interface IBundleSinglePage {
 }
 
 const BundleSinglePage: FC<IBundleSinglePage> = ({ data, template }) => {
-	// usePushCookieUserCart()
+	usePushCookieUserCart()
 
 	const { pushAllProducts } = useActions()
 	const { products: allProducts } = useProducts()
