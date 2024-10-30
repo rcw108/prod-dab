@@ -16,6 +16,7 @@ export const revalidate = 1800
 const SingleProductPage: FC<{ params: { slug: string } }> = async ({
 	params
 }) => {
+	return <div>Bundle</div>
 	if (!params || !params.slug) {
 		console.error('Slug is not defined')
 		return <div>Error: Slug is not defined</div>
