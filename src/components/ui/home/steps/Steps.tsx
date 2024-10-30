@@ -2,6 +2,7 @@ import { HomeACF } from '@/types/homepage.interface'
 import clsx from 'clsx'
 import { FC } from 'react'
 import ReactHtmlParser from 'react-html-parser'
+import SkeletonLoader from '../../SkeletonLoader'
 import Button from '../../button/Button'
 import Description from '../../headings/Description'
 import SubHeading from '../../headings/SubHeading'
@@ -30,6 +31,31 @@ const Steps: FC<ISteps> = ({
 	classNameDescr,
 	classNameStep
 }) => {
+	if (!link_st || !st_bg || !steps_st || !text_st || !title_st) {
+		return (
+			<div className={styles.skeletonSteps}>
+				<div className='container'>
+					<div className={styles.skeletonBox}>
+						<SkeletonLoader height={40} width={600} />
+						<SkeletonLoader height={30} width={600} />
+						<div className={styles.skeletonInfo}>
+							{Array(3)
+								.fill(0)
+								.map((_, index) => (
+									<div className={styles.skeletonStep} key={index}>
+										<SkeletonLoader height={400} width={'100%'} />
+									</div>
+								))}
+						</div>
+						<div className={styles.skeletonBtns}>
+							<SkeletonLoader height={40} width={300} />
+						</div>
+					</div>
+				</div>
+			</div>
+		)
+	}
+
 	return (
 		<section className={clsx(styles.steps, className)}>
 			<div className='container'>
