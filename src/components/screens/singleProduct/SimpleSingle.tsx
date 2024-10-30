@@ -5,7 +5,6 @@ import FaqSection from '@/components/ui/home/faqSection/FaqSection'
 import FormSection from '@/components/ui/home/formSection/FormSection'
 import MarqueeItem from '@/components/ui/home/headSection/marqueeItem/MarqueeItem'
 import Steps from '@/components/ui/home/steps/Steps'
-import ReviewsContent from '@/components/ui/reviews/reviewsContent/ReviewsContent'
 import MarqueeLineSection from '@/components/ui/shop/marqueeLineSection/MarqueeLineSection'
 import AlsoLove from '@/components/ui/singleProducts/singleTemplate/alsoLove/AlsoLove'
 import Miss from '@/components/ui/singleProducts/singleTemplate/dontMiss/Miss'
@@ -86,12 +85,12 @@ const SimpleSinglePage: FC<ISimpleSingle> = ({ data, template }) => {
 				marquee_line_bg={template.acf.move_section_background}
 				marquee_line_repeater={template.acf.content_move_s}
 			/>
-			<ReviewsContent
+			{/* <ReviewsContent
 				className='bg-black'
 				classNameText='text-white'
 				classNameTitle={styles.titleContentShop}
 				classNamePag={styles.paginationShop}
-			/>
+			/> */}
 			<FaqSection
 				bg_f={template.acf.backgoround_faq}
 				faqs_f={template.acf.tabs_faq}
