@@ -40,6 +40,7 @@ const SingleProductPage: FC<{ params: { slug: string } }> = async ({
 		return <VariableSinglePage template={pageTemplate} data={product} />
 	}
 	if (product.type === 'bundle') {
+		return <div>Bundle</div>
 		const pageTemplate: BundleSingle = await fetch(bundleSingleProductUrl)
 			.then(res => res.json())
 			.catch(err => console.log(err))
