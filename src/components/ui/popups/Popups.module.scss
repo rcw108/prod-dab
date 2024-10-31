@@ -9,7 +9,7 @@
 	height: 60px;
 	filter: drop-shadow(rgba(0, 0, 0, 0.15) 0px 0px 30px);
 	margin: 20px;
-	z-index: 30;
+	z-index: 60;
 	bottom: 0px;
 	background-color: rgb(252, 30, 76);
 	border-radius: 50%;
@@ -38,7 +38,7 @@
 	background-color: #000;
 	width: calc(100% - 40px);
 	height: calc(100% - 40px);
-	z-index: 50;
+	z-index: 60;
 	margin: 20px;
 	border-radius: 5px;
 	display: flex;
