@@ -29,10 +29,11 @@ const NewHeadSection: FC<INewHeadSection> = ({
 		<section className={styles.newHero}>
 			<Link href={hero_section_link.url} className={styles.img}>
 				<img src={hero_section_img} className={styles.desktop} alt='hero' />
-				<img
+				<Image
 					src={hero_section_img_mobile}
 					className={styles.mobile}
 					alt='hero'
+					fill
 				/>
 			</Link>
 			<div className={styles.line}>
