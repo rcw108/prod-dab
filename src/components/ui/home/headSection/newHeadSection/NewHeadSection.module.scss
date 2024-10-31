@@ -3,15 +3,19 @@
 		display: block;
 		position: relative;
 		width: 100%;
-		height: auto;
+		height: fit-content;
 		overflow: hidden;
 		img {
 			display: block;
 			height: auto;
 			width: 100%;
+			min-height: 400px;
+			height: auto;
 		}
 		.mobile {
 			display: none;
+			height: fit-content;
+			position: relative;
 		}
 	}
 	.line,
@@ -45,10 +49,9 @@
 	.newHero {
 		.img {
 			.desktop {
-				display: none;
-			}
-			.mobile {
-				display: block;
+				img {
+					min-height: 300px;
+				}
 			}
 		}
 		.line {
@@ -67,6 +70,22 @@
 
 @media (max-width: 1024px) {
 	.newHero {
+		.img {
+			.desktop {
+				display: none;
+			}
+			.mobile {
+				width: 100%;
+				display: block;
+			}
+		}
+
+		.img {
+			img {
+				min-height: 250px;
+				height: auto;
+			}
+		}
 		.line {
 			display: none;
 		}

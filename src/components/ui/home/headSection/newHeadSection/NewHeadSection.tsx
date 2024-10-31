@@ -1,3 +1,4 @@
+'use client'
 /* eslint-disable @next/next/no-img-element */
 import SmallHeading from '@/components/ui/headings/SmallHeading'
 import SingleMarquee from '@/components/ui/shop/marqueeLineSection/singleMarquee/SingleMarquee'

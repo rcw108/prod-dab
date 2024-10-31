@@ -6,6 +6,7 @@ import FaqSection from '@/components/ui/home/faqSection/FaqSection'
 import FlavorsSection from '@/components/ui/home/flavorsSection/FlavorsSection'
 import FormSection from '@/components/ui/home/formSection/FormSection'
 import NewHeadSection from '@/components/ui/home/headSection/newHeadSection/NewHeadSection'
+import NewPeekSection from '@/components/ui/home/newPeekSection/NewPeekSection'
 import Puff from '@/components/ui/home/puff/Puff'
 import SaveSection from '@/components/ui/home/saveSection/SaveSection'
 import Steps from '@/components/ui/home/steps/Steps'
@@ -15,7 +16,7 @@ import { usePushCookieUserCart } from '@/hooks/usePushCookieUserCart'
 import { IHome } from '@/types/homepage.interface'
 import { WooCommerceSingleProduct } from '@/types/wooCommerce.interface'
 import dynamic from 'next/dynamic'
-import { FC, useEffect } from 'react'
+import { FC, Suspense, useEffect } from 'react'
 import styles from './Home.module.scss'
 
 const DynamicPeekSection = dynamic(
@@ -61,10 +62,12 @@ const Home: FC<{ data: IHome; products: WooCommerceSingleProduct[] }> = ({
 				hero_section_img_mobile={data.acf.hero_section_img_mobile}
 			/>
 
-			<DynamicPeekSection
-				text_pr={data.acf.text_pr}
-				title_pr={data.acf.title_pr}
-			/>
+			<Suspense fallback={<div className='block h-[790px] min-w-full'></div>}>
+				<NewPeekSection
+					text_pr={data.acf.text_pr}
+					title_pr={data.acf.title_pr}
+				/>
+			</Suspense>
 
 			{/* <PeekSection
 				title={data.acf.title_pr}
