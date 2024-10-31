@@ -49,39 +49,43 @@ const NewPeekSection: FC<INewPeekSection> = ({ text_pr, title_pr }) => {
 						<div className={styles.box}>
 							{bundleProducts?.slice(1, 5).map(product => (
 								<div className={styles.item} key={product.id}>
-									<div className={styles.img}>
-										<Image
-											src={product.images[0].src}
-											alt={product.images[0].name}
-											fill
-											draggable={false}
-											unoptimized
-										/>
-									</div>
-									<div className={styles.rate}>
-										{[...Array(5)].map((_, i) => (
+									<Link href={`/products/${product.slug}`}>
+										<div className={styles.img}>
 											<Image
-												key={`star-${i}`}
-												src='/star.svg'
-												alt='star'
-												width={20}
-												height={20}
+												src={product.images[0].src}
+												alt={product.images[0].name}
+												fill
+												draggable={false}
+												unoptimized
 											/>
-										))}
-									</div>
-									<SmallHeading
-										className={styles.titleProduct}
-										title={ReactHtmlParser(product.name)}
-									/>
-									<div className={styles.price}>
-										<Description title={ReactHtmlParser(product.price_html)} />
-										<div className={styles.save}>
-											Save $
-											<span>
-												{(+product.regular_price - +product.price).toFixed(2)}
-											</span>
 										</div>
-									</div>
+										<div className={styles.rate}>
+											{[...Array(5)].map((_, i) => (
+												<Image
+													key={`star-${i}`}
+													src='/star.svg'
+													alt='star'
+													width={20}
+													height={20}
+												/>
+											))}
+										</div>
+										<SmallHeading
+											className={styles.titleProduct}
+											title={ReactHtmlParser(product.name)}
+										/>
+										<div className={styles.price}>
+											<Description
+												title={ReactHtmlParser(product.price_html)}
+											/>
+											<div className={styles.save}>
+												Save $
+												<span>
+													{(+product.regular_price - +product.price).toFixed(2)}
+												</span>
+											</div>
+										</div>
+									</Link>
 									<Link
 										className={styles.btn}
 										href={`/products/${product.slug}`}

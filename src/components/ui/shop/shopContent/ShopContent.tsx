@@ -182,6 +182,7 @@ const ShopContent: FC<IShopContent> = ({
 											<div className={styles.bundle}>
 												<div className='relative w-full h-full'>
 													<Image
+														className={styles.shopImg}
 														src={bundle_section_image}
 														alt='disposables'
 														fill
@@ -220,6 +221,7 @@ const ShopContent: FC<IShopContent> = ({
 											<div className={styles.gummy}>
 												<div className='relative w-full h-full'>
 													<Image
+														className={styles.shopImg}
 														src={gummy_section_image}
 														alt='disposables'
 														fill
@@ -258,6 +260,7 @@ const ShopContent: FC<IShopContent> = ({
 											<div className={styles.cartrigdes}>
 												<div className='relative w-full h-full'>
 													<Image
+														className={styles.shopImg}
 														src={cartridges_section_image}
 														alt='disposables'
 														fill
@@ -299,6 +302,7 @@ const ShopContent: FC<IShopContent> = ({
 											<div className={styles.disp}>
 												<div className='relative w-full h-full'>
 													<Image
+														className={styles.shopImg}
 														src={disposables_section_image}
 														alt='disposables'
 														fill

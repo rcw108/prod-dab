@@ -54,8 +54,14 @@
 }
 
 .main {
-	position: relative;
+	position: fixed;
 	overflow: hidden;
+	content: '';
+	left: 0;
+	top: 0;
+	width: 100%;
+	z-index: 55;
+	background-color: #000;
 }
 
 @media (max-width: 575px) {
