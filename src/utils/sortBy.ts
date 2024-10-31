@@ -74,7 +74,16 @@ export const filterByTag = (
 	tag: string
 ) => {
 	return tag
-		? products.filter(product => product.tags.some(t => t.name === tag))
+		? products.filter(product => product?.tags?.some(t => t.name === tag))
+		: products
+}
+
+export const filterByVibe = (
+	products: WooCommerceSingleProduct[],
+	vibe: string
+) => {
+	return vibe
+		? products.filter(product => product?.vibe?.some(t => t.name === vibe))
 		: products
 }
 
@@ -84,7 +93,7 @@ export const filterByCategory = (
 ) => {
 	return category
 		? products.filter(product =>
-				product.categories.some(c => c.name === category)
+				product?.categories?.some(c => c.name === category)
 			)
 		: products
 }

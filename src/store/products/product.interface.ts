@@ -17,6 +17,13 @@ export interface Category {
 	display: string
 }
 
+export interface Vibe {
+	id: number
+	name: string
+	slug: string
+	count: number
+}
+
 export interface InitialState {
 	products: WooCommerceSingleProduct[] | null
 	isLoading: boolean

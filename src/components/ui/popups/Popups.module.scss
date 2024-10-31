@@ -1,0 +1,230 @@
+.luckyOpenPopup {
+	position: fixed;
+	content: '';
+	width: 60px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 60px;
+	filter: drop-shadow(rgba(0, 0, 0, 0.15) 0px 0px 30px);
+	margin: 20px;
+	z-index: 30;
+	bottom: 0px;
+	background-color: rgb(252, 30, 76);
+	border-radius: 50%;
+	left: 0px;
+	cursor: pointer;
+	span {
+		font-weight: bold;
+		font-size: 10px;
+		color: rgb(255, 255, 255);
+		font-family: Arial, Helvetica, sans-serif;
+		font-style: italic;
+		line-height: 2;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100%;
+		width: 100%;
+		text-align: center;
+	}
+}
+
+.luckyOverlay {
+	overflow: auto;
+	position: fixed;
+	content: '';
+	background-color: #000;
+	width: calc(100% - 40px);
+	height: calc(100% - 40px);
+	z-index: 50;
+	margin: 20px;
+	border-radius: 5px;
+	display: flex;
+	flex-direction: column;
+	top: 0;
+	left: 0;
+}
+
+.luckyContent {
+	min-height: 100%;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding-top: 20px;
+	.luckyWrapper {
+		max-width: 320px;
+		margin: 0 auto;
+	}
+	.luckySubmit {
+		background: rgb(106, 195, 129);
+		border-radius: 5px;
+		border-style: none;
+		border-color: rgb(191, 49, 82);
+		border-width: 2px;
+		color: rgb(255, 255, 255);
+		text-transform: uppercase;
+		font-family: Arial, Helvetica, sans-serif;
+		font-size: 18px;
+		font-weight: 700;
+		letter-spacing: 0px;
+		line-height: 1;
+		white-space: normal;
+		padding-top: 0px;
+		padding-bottom: 0px;
+		text-align: center;
+		word-break: break-word;
+		align-self: flex-end;
+		cursor: pointer;
+		pointer-events: auto;
+		height: 54px;
+		width: 100%;
+		transition: all 0.3s ease-in-out;
+		&:hover {
+			background: #3b3b3b;
+		}
+	}
+
+	h2 {
+		font-weight: bold;
+		font-style: normal;
+		font-size: 45px;
+		color: rgb(248, 248, 248);
+		text-transform: uppercase;
+		@apply font-mont;
+		margin-top: 30px;
+	}
+	.descr {
+		font-weight: 500;
+		font-size: 18px;
+		color: rgb(255, 255, 255);
+		max-width: 290px;
+		text-align: center;
+		margin-top: 20px;
+		margin-bottom: 20px;
+		@apply font-mont;
+		font-style: normal;
+	}
+	label {
+		display: block;
+		margin-bottom: 40px;
+		position: relative;
+		.luckyError {
+			position: absolute;
+			content: '';
+			bottom: -30px;
+			color: red;
+			left: 00px;
+		}
+		input {
+			width: 100%;
+			border-radius: 5px;
+			padding: 0px 0px 0px 16px;
+			height: 51px;
+			text-align: left;
+			color: rgb(0, 0, 0);
+			@apply font-mont;
+			font-size: 16px;
+			font-weight: 400;
+			letter-spacing: 0px;
+			background-color: rgb(255, 255, 255);
+			border: 1px solid rgb(252, 30, 76);
+		}
+	}
+}
+
+.luckyClose {
+	position: absolute;
+	content: '';
+	right: 20px;
+	top: 20px;
+	cursor: pointer;
+	width: 40px;
+	height: 40px;
+}
+
+.luckyLater {
+	background: rgba(48, 59, 67, 0);
+	border-radius: 5px;
+	border-style: solid;
+	border-color: rgba(104, 104, 104, 0);
+	border-width: 1px;
+	color: rgb(162, 162, 163);
+	font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	letter-spacing: 0px;
+	line-height: 1;
+	white-space: normal;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	text-align: center;
+	word-break: break-word;
+	align-self: flex-end;
+	cursor: pointer;
+	pointer-events: auto;
+	height: 54px;
+	width: 100%;
+	margin-top: 20px;
+}
+
+.luckySuccess {
+	height: 100%;
+	width: 320px;
+	margin: 0 auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	h3 {
+		color: rgb(255, 0, 0);
+		text-align: center;
+		font-size: 30px;
+		margin-bottom: 20px;
+	}
+	h4 {
+		font-size: 18px;
+		color: rgb(202, 201, 201);
+		@apply font-mont;
+		font-weight: 400;
+		font-style: normal;
+		text-align: center;
+		margin-bottom: 20px;
+	}
+	h5 {
+		font-size: 18px;
+		color: rgb(255, 255, 255);
+		@apply font-mont;
+		font-weight: 400;
+		font-style: normal;
+		text-align: center;
+		margin-bottom: 20px;
+	}
+	button {
+		background: rgb(255, 0, 0);
+		border-radius: 2px;
+		border-style: none;
+		border-color: rgb(0, 0, 0);
+		border-width: 0px;
+		color: rgb(255, 255, 255);
+		@apply font-mont;
+		font-size: 16px;
+		font-weight: 700;
+		letter-spacing: 0px;
+		line-height: 1;
+		white-space: normal;
+		padding-top: 0px;
+		padding-bottom: 0px;
+		text-align: center;
+		word-break: break-word;
+		align-self: flex-end;
+		cursor: pointer;
+		pointer-events: auto;
+		height: 50px;
+		width: 100%;
+		text-transform: uppercase;
+	}
+}

@@ -130,6 +130,13 @@ export interface AttributesVar {
 	options: string[]
 }
 
+export interface Vibe {
+	id: number
+	name: string
+	slug: string
+	count: number
+}
+
 export interface WooCommerceSingleProduct extends BundleInterface {
 	id: number
 	name: string
@@ -180,6 +187,7 @@ export interface WooCommerceSingleProduct extends BundleInterface {
 	purchase_note: string
 	categories: Category[]
 	tags: Tag[]
+	vibe: Vibe[]
 	images: Image[]
 	attributes: AttributesVar[]
 	// default_attributes: []

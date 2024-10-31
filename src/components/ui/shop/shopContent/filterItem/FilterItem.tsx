@@ -1,4 +1,5 @@
 import { Category, Tag } from '@/store/products/product.interface'
+import { Vibe } from '@/types/wooCommerce.interface'
 import clsx from 'clsx'
 import Image from 'next/image'
 import { FC } from 'react'
@@ -7,7 +8,7 @@ import styles from '../ShopContent.module.scss'
 
 interface IFilterItem {
 	tab: boolean
-	itemsArray: Category[] | Tag[]
+	itemsArray: Category[] | Tag[] | Vibe[]
 	handler: (value: string) => void
 	active: string
 }

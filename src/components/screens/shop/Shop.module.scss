@@ -6,6 +6,7 @@
 	position: relative;
 	width: 1500px;
 	margin: 0 auto;
+	height: calc(100vw * 0.3);
 	img {
 		width: 100%;
 		height: auto;
@@ -64,10 +65,14 @@
 	.newHead {
 		width: 100%;
 	}
+	.shop {
+		min-height: 400px;
+	}
 }
 
 @media (max-width: 767px) {
 	.newHead {
+		height: 100vw;
 		.desk {
 			display: none;
 		}

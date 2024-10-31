@@ -37,6 +37,10 @@
 				}
 			}
 		}
+		&.selected {
+			opacity: 1;
+			border-bottom: 1px solid #dc9814;
+		}
 	}
 
 	li,
@@ -102,6 +106,27 @@
 			height: 2px;
 			background-color: #fff;
 			margin-bottom: 4px;
+		}
+	}
+	.items {
+		margin-top: 80px;
+		text-align: center;
+
+		.menuItem {
+			opacity: 0.6;
+		}
+
+		.selected {
+			display: inline-block;
+			opacity: 1;
+			border-bottom: 1px solid #dc9814;
+		}
+
+		.menuItem {
+			transition: all 0.3s ease-out;
+			&:hover {
+				opacity: 1;
+			}
 		}
 	}
 }

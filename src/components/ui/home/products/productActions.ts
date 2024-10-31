@@ -6,7 +6,7 @@ import {
 	ICheckoutOrder,
 	SubscribeCreate
 } from '@/types/checkoutLayout.interface'
-import { WooCommerceSingleProduct } from '@/types/wooCommerce.interface'
+import { Vibe, WooCommerceSingleProduct } from '@/types/wooCommerce.interface'
 import WooCommerceRestApi from '@woocommerce/woocommerce-rest-api'
 import { cache } from 'react'
 
@@ -43,6 +43,11 @@ export const getProductTags = cache(async () => {
 
 export const getProductCategories = cache(async () => {
 	const response: { data: Category[] } = await api.get('products/categories')
+	return response.data
+})
+
+export const getProductVibes = cache(async () => {
+	const response: { data: Vibe[] } = await api.get('products/vibes')
 	return response.data
 })
 

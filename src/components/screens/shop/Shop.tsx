@@ -9,7 +9,8 @@ import { useProducts } from '@/hooks/useProducts'
 import { usePushCookieUserCart } from '@/hooks/usePushCookieUserCart'
 import { Category, Tag } from '@/store/products/product.interface'
 import { IShopPage } from '@/types/shopPage.interface'
-import { WooCommerceSingleProduct } from '@/types/wooCommerce.interface'
+import { Vibe, WooCommerceSingleProduct } from '@/types/wooCommerce.interface'
+import Image from 'next/image'
 import { FC, Suspense, useEffect } from 'react'
 import ReactHtmlParser from 'react-html-parser'
 import styles from './Shop.module.scss'
@@ -19,9 +20,10 @@ interface IShop {
 	data: IShopPage
 	tags: Tag[]
 	categories: Category[]
+	vibes: Vibe[]
 }
 
-const Shop: FC<IShop> = ({ data, products, categories, tags }) => {
+const Shop: FC<IShop> = ({ data, products, categories, tags, vibes }) => {
 	const { pushAllProducts, pushCategories, pushTags } = useActions()
 	const {
 		products: allProducts,
@@ -58,17 +60,19 @@ const Shop: FC<IShop> = ({ data, products, categories, tags }) => {
 				title_head={data.acf.title_head}
 			/> */}
 			<div className={styles.newHead}>
-				<img
+				<Image
 					className={styles.desk}
 					src={data.acf.image_new_head}
 					alt='shop'
 					draggable={false}
+					fill
 				/>
-				<img
+				<Image
 					className={styles.mob}
 					src={data.acf.image_new_head_mobile}
 					alt='shop'
 					draggable={false}
+					fill
 				/>
 			</div>
 			<div className={styles.contentBlock}>
@@ -80,6 +84,7 @@ const Shop: FC<IShop> = ({ data, products, categories, tags }) => {
 						categories={categories}
 						tags={tags}
 						products={products}
+						vibes={vibes}
 						bundle_section_image={data.acf.bundle_section_image}
 						cartridges_section_image={data.acf.cartridges_section_image}
 						disposables_section_image={data.acf.disposables_section_image}

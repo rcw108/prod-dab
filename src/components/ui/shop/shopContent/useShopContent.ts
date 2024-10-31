@@ -4,6 +4,7 @@ import {
 	bestSelling,
 	filterByCategory,
 	filterByTag,
+	filterByVibe,
 	getTotalAvailableProducts,
 	highToLow,
 	latestCreated,
@@ -38,6 +39,8 @@ export const useShopContent = () => {
 	const [availabilityActive, setAvailabilityActive] = useState<'stock' | 'out'>(
 		'stock'
 	)
+	const [vibeTab, setVibeTab] = useState(false)
+	const [vibeActive, setVibeActive] = useState<string>('')
 	const [categiriesTab, setCategiriesTab] = useState(false)
 	const [categoriesActive, setCategoriesActive] = useState<string>('')
 	const [tagTab, setTagTab] = useState(false)
@@ -141,6 +144,24 @@ export const useShopContent = () => {
 		[pathname, router, createQueryString, sortedProducts]
 	)
 
+	const handleSortVibe = useCallback(
+		(value: string) => {
+			setLoading(true)
+			setSelectTag(value)
+			const updatedQuery = createQueryString('vibe', value)
+			router.push(pathname + '?' + updatedQuery, { scroll: false })
+			setSortedProducts(filterByVibe(sortedProducts, value))
+			setCurrentPagination(0)
+			setProgressPagination(12)
+			setLoading(false)
+		},
+		[pathname, router, createQueryString, sortedProducts]
+	)
+
+	useEffect(() => {
+		handleSortVibe(vibeActive)
+	}, [vibeActive])
+
 	useEffect(() => {
 		handleSortAvailability(availabilityActive)
 	}, [availabilityActive])
@@ -159,6 +180,12 @@ export const useShopContent = () => {
 		const valueToFilter = availability === 'stock' ? 'instock' : 'outofstock'
 		const category = searchParams.get('category')
 		const tags = searchParams.get('tag')
+		const vibe = searchParams.get('vibe')
+
+		if (vibe) {
+			setVibeActive(vibe)
+			setSortedProducts(prevProducts => filterByVibe(prevProducts, vibe))
+		}
 
 		if (sort) {
 			setSortBy(sort)
@@ -230,6 +257,14 @@ export const useShopContent = () => {
 			setTagActive('')
 		} else {
 			setTagActive(tag)
+		}
+	}
+
+	const handleVibe = (vibe: string) => {
+		if (vibe === vibeActive) {
+			setVibeActive('')
+		} else {
+			setVibeActive(vibe)
 		}
 	}
 
@@ -345,6 +380,10 @@ export const useShopContent = () => {
 		disposablesProducts,
 		bundleProducts,
 		cartridgesProducts,
-		gummyProducts
+		gummyProducts,
+		handleVibe,
+		vibeTab,
+		setVibeTab,
+		vibeActive
 	}
 }

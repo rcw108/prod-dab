@@ -1,6 +1,7 @@
 'use client'
 
 import Layout from '@/components/layout/Layout'
+import GetLuckyPopup from '@/components/ui/popups/GetLuckyPopup'
 import { store } from '@/store/store'
 import { FC, PropsWithChildren } from 'react'
 import { Provider } from 'react-redux'
@@ -18,6 +19,7 @@ const MainProvider: FC<PropsWithChildren> = ({ children }) => {
 					</ReactQueryProvider>
 				</CartProvider>
 			</Provider>
+			<GetLuckyPopup />
 		</HeadProvider>
 	)
 }

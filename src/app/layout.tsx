@@ -9,7 +9,7 @@ import './globals.scss'
 
 export async function generateMetadata(): Promise<Metadata> {
 	const { data }: { data: ILayout } = await fetch(layoutUrl, {
-		cache: 'force-cache'
+		cache: 'no-store'
 	}).then(res => res.json())
 	return {
 		title: data.name,

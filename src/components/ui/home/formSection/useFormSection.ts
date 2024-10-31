@@ -40,9 +40,11 @@ export const useFormSection = () => {
 		const response = await axios.post(homePageForm, JSON.stringify(data), {
 			headers: {
 				'Content-Type': 'application/json',
-				revision: '2024-07-15'
+				revision: new Date().toISOString().split('T')[0]
 			}
 		})
+
+		console.log(response)
 
 		if (response.status === 202) {
 			setIsLoading(false)

@@ -2,7 +2,7 @@
 
 import { Category, Tag } from '@/store/products/product.interface'
 import { ShopACF } from '@/types/shopPage.interface'
-import { WooCommerceSingleProduct } from '@/types/wooCommerce.interface'
+import { Vibe, WooCommerceSingleProduct } from '@/types/wooCommerce.interface'
 import clsx from 'clsx'
 import Image from 'next/image'
 import { FC, useEffect, useState } from 'react'
@@ -24,6 +24,7 @@ interface IShopContent
 	products: WooCommerceSingleProduct[]
 	categories: Category[]
 	tags: Tag[]
+	vibes: Vibe[]
 }
 
 const ShopContent: FC<IShopContent> = ({
@@ -33,7 +34,8 @@ const ShopContent: FC<IShopContent> = ({
 	bundle_section_image,
 	cartridges_section_image,
 	disposables_section_image,
-	gummy_section_image
+	gummy_section_image,
+	vibes
 }) => {
 	const {
 		sortedProducts,
@@ -52,7 +54,11 @@ const ShopContent: FC<IShopContent> = ({
 		disposablesProducts,
 		bundleProducts,
 		cartridgesProducts,
-		gummyProducts
+		gummyProducts,
+		vibeActive,
+		vibeTab,
+		setVibeTab,
+		handleVibe
 	} = useShopContent()
 
 	const [bundleLoad, setBundleLoad] = useState<number>(7)
@@ -147,6 +153,20 @@ const ShopContent: FC<IShopContent> = ({
 									handler={handleTags}
 									active={tagActive}
 									tab={tagTab}
+								/>
+							</div>
+							<div className={styles.vibe}>
+								<FilterHeader
+									title='Vibe'
+									className={styles.vibeTop}
+									handler={setVibeTab}
+									handlerValue={vibeTab}
+								/>
+								<FilterItem
+									itemsArray={vibes}
+									handler={handleVibe}
+									active={vibeActive}
+									tab={vibeTab}
 								/>
 							</div>
 						</div>

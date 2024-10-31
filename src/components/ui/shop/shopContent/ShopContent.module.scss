@@ -103,7 +103,8 @@
 		}
 		.availability,
 		.categories,
-		.tags {
+		.tags,
+		.vibe {
 			padding: 8px 12px;
 			border: 2px solid #fff;
 			border-radius: 8px;
@@ -122,6 +123,12 @@
 
 		.tags {
 			.tagTop {
+				@apply flex items-center justify-between cursor-pointer;
+			}
+		}
+
+		.vibe {
+			.vibeTop {
 				@apply flex items-center justify-between cursor-pointer;
 			}
 		}
@@ -304,6 +311,8 @@
 	.cartrigdes,
 	.gummy,
 	.bundle {
+		padding: 0 35px;
+		grid-template-columns: repeat(1, 1fr);
 		grid-template-rows: minmax(258px, auto);
 		grid-auto-rows: minmax(258px, auto);
 	}

@@ -2,7 +2,8 @@ import Shop from '@/components/screens/shop/Shop'
 import {
 	getAllProducts,
 	getProductCategories,
-	getProductTags
+	getProductTags,
+	getProductVibes
 } from '@/components/ui/home/products/productActions'
 import { shopPageUrl } from '@/configs/page.config'
 import { IShopPage } from '@/types/shopPage.interface'
@@ -26,17 +27,19 @@ const ShopPage: FC = async () => {
 	const { products } = await getAllProducts()
 	const categories = await getProductCategories()
 	const tags = await getProductTags()
+	const vibes = await getProductVibes()
 
 	const data = await fetchShopData()
 
 	return (
 		<>
-			{data && products && categories && tags && (
+			{data && products && categories && tags && vibes && (
 				<Shop
 					categories={categories}
 					tags={tags}
 					products={products}
 					data={data}
+					vibes={vibes}
 				/>
 			)}
 		</>
