@@ -178,6 +178,7 @@
 @media (max-width: 575px) {
 	.peek {
 		.box {
+			padding: 0 35px;
 			grid-template-columns: repeat(1, 1fr);
 			.item {
 				&:last-child {
