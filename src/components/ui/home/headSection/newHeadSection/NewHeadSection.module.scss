@@ -72,13 +72,15 @@
 @media (max-width: 1024px) {
 	.newHero {
 		.img {
-			height: calc(100vw * 0.75);
+			height: 60vw;
 			.desktop {
 				display: none;
 			}
 			.mobile {
 				width: 100%;
 				display: block;
+				object-fit: cover;
+				object-position: top;
 			}
 		}
 
