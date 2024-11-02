@@ -5,6 +5,12 @@ const nextConfig = {
 		remotePatterns: [
 			{
 				protocol: 'https',
+				hostname: 'wordpress-981839-4997700.cloudwaysapps.com',
+				port: '',
+				pathname: '/wp-content/uploads/**'
+			},
+			{
+				protocol: 'https',
 				hostname: 'wordpress-981839-4976343.cloudwaysapps.com',
 				port: '',
 				pathname: '/wp-content/uploads/**'

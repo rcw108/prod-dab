@@ -31,7 +31,7 @@ const Steps: FC<ISteps> = ({
 	classNameDescr,
 	classNameStep
 }) => {
-	if (!link_st || !st_bg || !steps_st || !text_st || !title_st) {
+	if (!link_st || !steps_st || !text_st || !title_st) {
 		return (
 			<div className={styles.skeletonSteps}>
 				<div className='container'>
