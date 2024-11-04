@@ -51,14 +51,15 @@ const GetLuckyPopup: FC = () => {
 		const res = await onSubmit('UgFxtg', data.email)
 		if (res.success === true) {
 			setSuccess(true)
+			setIsVisible(true)
 			Cookies.set(cookieName, 'true', { expires: cookieExpiryDays })
 			Cookies.set('viewed', 'true', { expires: cookieExpiryDays })
 		}
 	}
 
-	if (!isClient) return null
+	if (!isClient || !isVisible) return null
 
-	if (!isVisible)
+	if (isVisible)
 		return (
 			<div className={styles.luckyOpenPopup} onClick={() => setIsVisible(true)}>
 				<span>GET LUCKY!</span>
@@ -82,7 +83,7 @@ const GetLuckyPopup: FC = () => {
 									If you can&apos;t find our email, check Promotions and/or SPAM
 									folders.
 								</h5>
-								<button>Continue shopping</button>
+								<button onClick={closePopup}>Continue shopping</button>
 							</div>
 						) : (
 							<>

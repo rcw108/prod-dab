@@ -15,6 +15,8 @@ const Menu: FC = () => {
 
 	const headerMenu = data?.filter(item => item.name === 'Primary Menu')
 
+	console.log(headerMenu, data)
+
 	const [openMenu, setOpenMenu] = useState(false)
 
 	const isActive = (url: string) => {

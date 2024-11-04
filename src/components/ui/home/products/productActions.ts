@@ -61,6 +61,18 @@ export const createOrder = async (orderData: ICheckoutOrder) => {
 	}
 }
 
+export const createOrderNote = async (
+	orderId: number,
+	note: { note: string }
+) => {
+	try {
+		const response = await api.post(`orders/${orderId}/notes`, note)
+		return response
+	} catch (error) {
+		console.error('Error create order note:', error)
+	}
+}
+
 export const getDiscountCodeAsync = async (discountName: string) => {
 	try {
 		const discountCode = await api

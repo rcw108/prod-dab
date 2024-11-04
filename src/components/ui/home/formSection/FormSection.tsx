@@ -35,7 +35,7 @@ const FormSection: FC<IFormSection> = ({
 		useFormSection()
 
 	const formSubmit = async () => {
-		const res = await onSubmit('VuHzSL', getValues('email'))
+		const res = await onSubmit('UgFxtg', getValues('email'))
 		if (res.success === true) setSuccess(true)
 	}
 

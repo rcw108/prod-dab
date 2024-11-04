@@ -1,6 +1,7 @@
 'use client'
 
 import Layout from '@/components/layout/Layout'
+import AgePopup from '@/components/ui/popups/AgePopup'
 import GetLuckyPopup from '@/components/ui/popups/GetLuckyPopup'
 import { store } from '@/store/store'
 import { FC, PropsWithChildren } from 'react'
@@ -16,10 +17,11 @@ const MainProvider: FC<PropsWithChildren> = ({ children }) => {
 				<CartProvider>
 					<ReactQueryProvider>
 						<Layout>{children}</Layout>
+						<AgePopup />
+						<GetLuckyPopup />
 					</ReactQueryProvider>
 				</CartProvider>
 			</Provider>
-			<GetLuckyPopup />
 		</HeadProvider>
 	)
 }

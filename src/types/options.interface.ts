@@ -14,4 +14,10 @@ export interface Options {
 	title_col3_f: string
 	title_col4_f: string
 	header_logo: string
+	//age
+	logotype_age: string
+	title_age: string
+	text_age: string
+	faq_age: string
+	checker_logo: string
 }

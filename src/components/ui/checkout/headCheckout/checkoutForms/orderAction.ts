@@ -2,6 +2,7 @@
 
 import {
 	createOrder,
+	createOrderNote,
 	getDiscountCodeAsync,
 	updateOrderPaymentStatus
 } from '@/components/ui/home/products/productActions'
@@ -35,6 +36,19 @@ const sendTransactionRequest = async (
 	} catch (error) {
 		console.error('Error sending transaction request:', error)
 		throw new Error('Transaction request failed')
+	}
+}
+
+export const setVerifyCheckerToOrder = async (orderId: number) => {
+	const note = {
+		note: 'Age Verified.'
+	}
+
+	try {
+		const res = await createOrderNote(orderId, note)
+		return res
+	} catch (error) {
+		console.error('Error set verify checker to order:', error)
 	}
 }
 
@@ -118,18 +132,22 @@ export const handleCreateOrder = async (
 			console.log(222222222222222, transactionResponse.messages)
 			if (transactionResponse.transactionResponse.responseCode === '2') {
 				const res = await updateOrderPaymentStatus(order.id, 'failed')
+				setVerifyCheckerToOrder(order.id)
 				console.log(res)
 			}
 			if (transactionResponse.transactionResponse.responseCode === '1') {
 				const res = await updateOrderPaymentStatus(order.id, 'processing')
+				setVerifyCheckerToOrder(order.id)
 				console.log(res)
 			}
 			if (transactionResponse.transactionResponse.responseCode === '4') {
 				const res = await updateOrderPaymentStatus(order.id, 'processing')
+				setVerifyCheckerToOrder(order.id)
 				console.log(res)
 			}
 			if (transactionResponse.transactionResponse.responseCode === '3') {
 				const res = await updateOrderPaymentStatus(order.id, 'failed')
+				setVerifyCheckerToOrder(order.id)
 				console.log(res)
 			}
 			return { order, transactionResponse }

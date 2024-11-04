@@ -40,7 +40,7 @@ export const useFormSection = () => {
 		const response = await axios.post(homePageForm, JSON.stringify(data), {
 			headers: {
 				'Content-Type': 'application/json',
-				revision: new Date().toISOString().split('T')[0]
+				revision: '2024-07-15'
 			}
 		})
 
