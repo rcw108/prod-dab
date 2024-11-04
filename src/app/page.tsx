@@ -1,5 +1,4 @@
 import Home from '@/components/screens/home/Home'
-import { getAllProducts } from '@/components/ui/home/products/productActions'
 import { homePageUrl } from '@/configs/page.config'
 import { IHome } from '@/types/homepage.interface'
 import { FC } from 'react'
@@ -16,9 +15,7 @@ const getHomeData = async () => {
 const HomePage: FC = async () => {
 	const data = await getHomeData()
 
-	const { products } = await getAllProducts()
-
-	return <>{data && products && <Home products={products} data={data} />}</>
+	return <>{data && <Home data={data} />}</>
 }
 
 export default HomePage

@@ -11,10 +11,10 @@ import Puff from '@/components/ui/home/puff/Puff'
 import SaveSection from '@/components/ui/home/saveSection/SaveSection'
 import Steps from '@/components/ui/home/steps/Steps'
 import { useActions } from '@/hooks/useActions'
+import { useGetAllSingleProducts } from '@/hooks/useGetAllSingleProducts'
 import { useProducts } from '@/hooks/useProducts'
 import { usePushCookieUserCart } from '@/hooks/usePushCookieUserCart'
 import { IHome } from '@/types/homepage.interface'
-import { WooCommerceSingleProduct } from '@/types/wooCommerce.interface'
 import dynamic from 'next/dynamic'
 import { FC, Suspense, useEffect } from 'react'
 import styles from './Home.module.scss'
@@ -26,17 +26,16 @@ const DynamicPeekSection = dynamic(
 	}
 )
 
-const Home: FC<{ data: IHome; products: WooCommerceSingleProduct[] }> = ({
-	data,
-	products
-}) => {
+const Home: FC<{ data: IHome }> = ({ data }) => {
 	const { pushAllProducts } = useActions()
 	const { products: allProducts } = useProducts()
+
+	const { products, isLoading } = useGetAllSingleProducts()
 
 	useEffect(() => {
 		if (allProducts) return
 		pushAllProducts(products)
-	}, [])
+	}, [products])
 
 	usePushCookieUserCart()
 
