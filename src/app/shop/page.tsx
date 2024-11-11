@@ -9,7 +9,7 @@ import { shopPageUrl } from '@/configs/page.config'
 import { IShopPage } from '@/types/shopPage.interface'
 import { FC } from 'react'
 
-export const revalidate = 1800
+export const dynamic = 'force-dynamic'
 
 const fetchShopData = async () => {
 	const response: IShopPage = await fetch(
