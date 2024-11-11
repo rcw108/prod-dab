@@ -3,6 +3,8 @@ import { checkoutUrl } from '@/configs/layout.config'
 import { ICheckoutLayout } from '@/types/checkoutLayout.interface'
 import { FC } from 'react'
 
+export const dynamic = 'force-dynamic'
+
 const getCheckoutData = async () => {
 	const data: ICheckoutLayout = await fetch(checkoutUrl).then(res => res.json())
 	return data

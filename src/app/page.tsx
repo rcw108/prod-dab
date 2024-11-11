@@ -3,7 +3,7 @@ import { homePageUrl } from '@/configs/page.config'
 import { IHome } from '@/types/homepage.interface'
 import { FC } from 'react'
 
-export const revalidate = 3600
+export const dynamic = 'force-dynamic'
 
 const getHomeData = async () => {
 	const data: IHome = await fetch(`${homePageUrl}?acf_format=standard`, {

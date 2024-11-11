@@ -3,6 +3,8 @@ import { faqPageUrl } from '@/configs/page.config'
 import { FAQPage } from '@/types/faq.interface'
 import { FC } from 'react'
 
+export const dynamic = 'force-dynamic'
+
 const getFAQData = async () => {
 	const data: FAQPage = await fetch(`${faqPageUrl}`).then(res => res.json())
 	return data

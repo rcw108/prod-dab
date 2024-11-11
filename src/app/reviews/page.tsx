@@ -3,6 +3,8 @@ import { reviewsPageUrl } from '@/configs/page.config'
 import { Reviews as IReviews } from '@/types/reviews.interface'
 import { FC } from 'react'
 
+export const dynamic = 'force-dynamic'
+
 const fetchReviewsLayout = async () => {
 	const response: IReviews = await fetch(reviewsPageUrl).then(res => res.json())
 
