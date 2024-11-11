@@ -1,13 +1,16 @@
 import SkeletonLoader from '@/components/ui/SkeletonLoader'
+import { Options } from '@/types/options.interface'
 import Image from 'next/image'
 import Link from 'next/link'
 import { FC } from 'react'
-import { useTopBar } from '../topbar/useTopBar'
 import styles from './Logotype.module.scss'
 
-const Logotype: FC = () => {
-	const { data, isLoading } = useTopBar()
+interface ILogotype {
+	data: Options | undefined
+	isLoading: boolean
+}
 
+const Logotype: FC<ILogotype> = ({ data, isLoading }) => {
 	return (
 		<>
 			{isLoading ? (

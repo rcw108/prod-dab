@@ -1,13 +1,16 @@
 import SkeletonLoader from '@/components/ui/SkeletonLoader'
+import { Options } from '@/types/options.interface'
 import Image from 'next/image'
 import { FC } from 'react'
 import ReactHtmlParser from 'react-html-parser'
 import styles from './TopBar.module.scss'
-import { useTopBar } from './useTopBar'
 
-const TopBar: FC = () => {
-	const { data, isLoading } = useTopBar()
+interface ITopBar {
+	data: Options | undefined
+	isLoading: boolean
+}
 
+const TopBar: FC<ITopBar> = ({ data, isLoading }) => {
 	return (
 		<div className={styles.topbar}>
 			{isLoading ? (

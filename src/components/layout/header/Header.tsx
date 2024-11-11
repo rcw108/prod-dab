@@ -1,5 +1,6 @@
 'use client'
 
+import { Options } from '@/types/options.interface'
 import clsx from 'clsx'
 import { motion, useMotionValueEvent, useScroll } from 'framer-motion'
 import dynamic from 'next/dynamic'
@@ -17,7 +18,12 @@ const DynamicCart = dynamic(() => import('./cart/Cart'), { ssr: false })
 
 const DynamicSearch = dynamic(() => import('./search/Search'), { ssr: false })
 
-const Header: FC = () => {
+interface IHeader {
+	data: Options | undefined
+	isLoading: boolean
+}
+
+const Header: FC<IHeader> = ({ data, isLoading }) => {
 	const pathname = usePathname()
 	const [isOpen, setIsOpen] = useState(false)
 	const [isHidden, setIsHidden] = useState(false)
@@ -50,9 +56,9 @@ const Header: FC = () => {
 			transition={{ duration: 0.2 }}
 			className={clsx(styles.main)}
 		>
-			<TopBar />
+			<TopBar data={data} isLoading={isLoading} />
 			<div className={clsx('header-line')}>
-				<Logotype />
+				<Logotype data={data} isLoading={isLoading} />
 				<Menu />
 				<div className={styles.details}>
 					<div className={clsx('cursor-pointer', styles.search)}>

@@ -1,6 +1,5 @@
 import Shop from '@/components/screens/shop/Shop'
 import {
-	getAllProducts,
 	getProductCategories,
 	getProductTags,
 	getProductVibes
@@ -24,7 +23,6 @@ export const metadata = {
 }
 
 const ShopPage: FC = async () => {
-	const { products } = await getAllProducts()
 	const categories = await getProductCategories()
 	const tags = await getProductTags()
 	const vibes = await getProductVibes()
@@ -33,14 +31,8 @@ const ShopPage: FC = async () => {
 
 	return (
 		<>
-			{data && products && categories && tags && vibes && (
-				<Shop
-					categories={categories}
-					tags={tags}
-					products={products}
-					data={data}
-					vibes={vibes}
-				/>
+			{data && categories && tags && vibes && (
+				<Shop categories={categories} tags={tags} data={data} vibes={vibes} />
 			)}
 		</>
 	)

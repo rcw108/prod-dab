@@ -5,31 +5,33 @@ import FormSection from '@/components/ui/home/formSection/FormSection'
 import ReviewsContent from '@/components/ui/reviews/reviewsContent/ReviewsContent'
 import ShopContent from '@/components/ui/shop/shopContent/ShopContent'
 import { useActions } from '@/hooks/useActions'
+import { useGetAllSingleProducts } from '@/hooks/useGetAllSingleProducts'
 import { useProducts } from '@/hooks/useProducts'
 import { usePushCookieUserCart } from '@/hooks/usePushCookieUserCart'
 import { Category, Tag } from '@/store/products/product.interface'
 import { IShopPage } from '@/types/shopPage.interface'
-import { Vibe, WooCommerceSingleProduct } from '@/types/wooCommerce.interface'
+import { Vibe } from '@/types/wooCommerce.interface'
 import Image from 'next/image'
-import { FC, Suspense, useEffect } from 'react'
+import { FC, useEffect } from 'react'
 import ReactHtmlParser from 'react-html-parser'
 import styles from './Shop.module.scss'
 
 interface IShop {
-	products: WooCommerceSingleProduct[]
 	data: IShopPage
 	tags: Tag[]
 	categories: Category[]
 	vibes: Vibe[]
 }
 
-const Shop: FC<IShop> = ({ data, products, categories, tags, vibes }) => {
+const Shop: FC<IShop> = ({ data, categories, tags, vibes }) => {
 	const { pushAllProducts, pushCategories, pushTags } = useActions()
 	const {
 		products: allProducts,
 		categories: allCategories,
 		tags: allTags
 	} = useProducts()
+
+	const { products, isLoading } = useGetAllSingleProducts()
 
 	useEffect(() => {
 		if (allProducts) return
@@ -78,8 +80,8 @@ const Shop: FC<IShop> = ({ data, products, categories, tags, vibes }) => {
 			<div className={styles.contentBlock}>
 				{ReactHtmlParser(data.content.rendered)}
 			</div>
-			<div className={styles.shop}>
-				<Suspense>
+			{products && (
+				<div className={styles.shop}>
 					<ShopContent
 						categories={categories}
 						tags={tags}
@@ -90,8 +92,8 @@ const Shop: FC<IShop> = ({ data, products, categories, tags, vibes }) => {
 						disposables_section_image={data.acf.disposables_section_image}
 						gummy_section_image={data.acf.gummy_section_image}
 					/>
-				</Suspense>
-			</div>
+				</div>
+			)}
 			{/* <MarqueeLineSection
 				marquee_line_bg={data.acf.marquee_line_bg}
 				marquee_line_repeater={data.acf.marquee_line_repeater}
