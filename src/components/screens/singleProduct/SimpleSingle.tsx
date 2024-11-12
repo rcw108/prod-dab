@@ -16,7 +16,7 @@ import { useProducts } from '@/hooks/useProducts'
 import { usePushCookieUserCart } from '@/hooks/usePushCookieUserCart'
 import { SimpleSingle } from '@/types/singleTemplates/simpleSingle.interface'
 import { WooCommerceSingleProduct } from '@/types/wooCommerce.interface'
-import { FC, Suspense, useEffect } from 'react'
+import { FC, Suspense, useEffect, useRef } from 'react'
 import Marquee from 'react-fast-marquee'
 import SimpleCard from '../../ui/singleProducts/simpleCard/SimpleCard'
 import SingleHeader from '../../ui/singleProducts/singleHeader/SingleHeader'
@@ -28,6 +28,7 @@ interface ISimpleSingle {
 
 const SimpleSinglePage: FC<ISimpleSingle> = ({ data, template }) => {
 	usePushCookieUserCart()
+	const contentBlockRef = useRef<HTMLDivElement>(null)
 
 	const { pushAllProducts } = useActions()
 	const { products: allProducts } = useProducts()
@@ -86,8 +87,10 @@ const SimpleSinglePage: FC<ISimpleSingle> = ({ data, template }) => {
 				marquee_line_bg={template.acf.move_section_background}
 				marquee_line_repeater={template.acf.content_move_s}
 			/>
+			<div className='archon' ref={contentBlockRef}></div>
 			<Suspense fallback={<div>Loading...</div>}>
 				<ReviewsContent
+					contentBlockRef={contentBlockRef}
 					className='bg-black'
 					classNameText='text-white'
 					classNameTitle={styles.titleContentShop}
