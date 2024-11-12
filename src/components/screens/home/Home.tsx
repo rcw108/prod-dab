@@ -63,6 +63,8 @@ const Home: FC<{ data: IHome }> = ({ data }) => {
 
 			<Suspense fallback={<div className='block h-[790px] min-w-full'></div>}>
 				<NewPeekSection
+					linkContent={data.acf.relation_link}
+					productsToRender={data.acf.relation_products}
 					text_pr={data.acf.text_pr}
 					title_pr={data.acf.title_pr}
 				/>

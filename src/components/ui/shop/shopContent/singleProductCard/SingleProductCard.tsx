@@ -3,6 +3,7 @@
 import Description from '@/components/ui/headings/Description'
 import { useVariableVariantProduct } from '@/components/ui/singleProducts/variableCard/useVariableVariantProduct'
 import { useActions } from '@/hooks/useActions'
+import { useCartContext } from '@/providers/CartContextProvider'
 import { WooCommerceSingleProduct } from '@/types/wooCommerce.interface'
 import clsx from 'clsx'
 import Image from 'next/image'
@@ -31,10 +32,14 @@ const SingleProductCard: FC<WooCommerceSingleProduct> = ({
 	const { isLoading, singleProductVar, error } = useVariableVariantProduct(
 		variations[0]
 	)
+	const [disable, setDisable] = useState(false)
 
 	const { addToCart } = useActions()
+	const { openCart, setOpenCart } = useCartContext()
 
 	const handleAddProduct = () => {
+		setOpenCart(true)
+		setDisable(true)
 		addToCart({
 			id: id,
 			count: 1,
@@ -44,6 +49,9 @@ const SingleProductCard: FC<WooCommerceSingleProduct> = ({
 			name: name,
 			itemImage: images[0].src
 		})
+		setTimeout(() => {
+			setDisable(false)
+		}, 400)
 	}
 
 	const variantPriceFn = (): { regular_price: number; sale_price: number } => {
@@ -112,9 +120,13 @@ const SingleProductCard: FC<WooCommerceSingleProduct> = ({
 				</div>
 			</Link>
 			{type === 'simple' ? (
-				<div onClick={handleAddProduct} className={styles.btn}>
-					<span>Add to cart</span>
-				</div>
+				<button
+					disabled={disable}
+					onClick={handleAddProduct}
+					className={styles.btn}
+				>
+					Add to cart
+				</button>
 			) : type === 'variable' ? (
 				<Link className={styles.btn} href={`products/${slug}`}>
 					<span>Choose your flavor</span>

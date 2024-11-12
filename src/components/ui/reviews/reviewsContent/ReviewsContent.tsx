@@ -66,11 +66,21 @@ const ReviewsContent: FC<{
 
 	const handleClickPagination = (page: number) => {
 		setPage(page)
-		contentBlockRef.current?.scrollIntoView({ behavior: 'smooth' })
+		if (contentBlockRef.current) {
+			const yOffset = -148
+			const elementPosition =
+				contentBlockRef.current.getBoundingClientRect().top
+			const offsetPosition = elementPosition + window.pageYOffset + yOffset
+
+			window.scrollTo({
+				top: offsetPosition,
+				behavior: 'smooth'
+			})
+		}
 	}
 
 	return (
-		<section className={className}>
+		<section className={className} ref={contentBlockRef}>
 			<div className='container'>
 				<div className={styles.wrapper}>
 					{reviewsContent ? (
@@ -95,7 +105,7 @@ const ReviewsContent: FC<{
 								/>
 							</div>
 
-							<div className={styles.content} ref={contentBlockRef}>
+							<div className={styles.content}>
 								{reviewsContent.results.map(item => (
 									<div className={styles.item} key={item.review.id}>
 										<div className={styles.box}>

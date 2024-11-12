@@ -102,6 +102,10 @@ export interface HomeACF {
 	background_image_form: string
 	form_title: string
 	form_description: string
+
+	// relations
+	relation_products: number[]
+	relation_link: PageLink
 }
 
 export interface BasePageInfo {

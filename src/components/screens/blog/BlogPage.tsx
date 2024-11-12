@@ -1,7 +1,6 @@
 import Description from '@/components/ui/headings/Description'
 import Heading from '@/components/ui/headings/Heading'
 import { IBLog } from '@/types/blog.interface'
-import Image from 'next/image'
 import Link from 'next/link'
 import { FC } from 'react'
 import ReactHtmlParser from 'react-html-parser'
@@ -23,17 +22,6 @@ const BlogPage: FC<{ data: IBLog }> = ({ data }) => {
 								? data.title
 								: data.title.rendered}
 						</span>
-					</div>
-					<div className={styles.feature}>
-						<Image
-							fill
-							src={data.featured_image}
-							alt={
-								typeof data.title === 'string'
-									? data.title
-									: data.title.rendered
-							}
-						/>
 					</div>
 					<Heading
 						className={styles.title}

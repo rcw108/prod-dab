@@ -15,7 +15,7 @@ const CheckoutHeader: FC = () => {
 
 	return (
 		data && (
-			<header>
+			<header className={styles.checkoutHeader}>
 				<div className={styles.topBar}>
 					<Image
 						src={data.acf.top_bar_icon}

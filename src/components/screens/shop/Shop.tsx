@@ -4,6 +4,7 @@
 import FormSection from '@/components/ui/home/formSection/FormSection'
 import ReviewsContent from '@/components/ui/reviews/reviewsContent/ReviewsContent'
 import ShopContent from '@/components/ui/shop/shopContent/ShopContent'
+import ShopContentSkeletonLoader from '@/components/ui/shop/shopContentSkeletonLoader/ShopContentSkeletonLoader'
 import { useActions } from '@/hooks/useActions'
 import { useGetAllSingleProducts } from '@/hooks/useGetAllSingleProducts'
 import { useProducts } from '@/hooks/useProducts'
@@ -80,7 +81,7 @@ const Shop: FC<IShop> = ({ data, categories, tags, vibes }) => {
 			<div className={styles.contentBlock}>
 				{ReactHtmlParser(data.content.rendered)}
 			</div>
-			{products && (
+			{products ? (
 				<div className={styles.shop}>
 					<ShopContent
 						categories={categories}
@@ -93,6 +94,8 @@ const Shop: FC<IShop> = ({ data, categories, tags, vibes }) => {
 						gummy_section_image={data.acf.gummy_section_image}
 					/>
 				</div>
+			) : (
+				<ShopContentSkeletonLoader />
 			)}
 			{/* <MarqueeLineSection
 				marquee_line_bg={data.acf.marquee_line_bg}

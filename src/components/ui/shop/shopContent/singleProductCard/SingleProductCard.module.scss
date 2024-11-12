@@ -84,7 +84,7 @@
 		display: block;
 		width: 100%;
 		border: 2px solid #f77214;
-		background: #f77214;
+		background-color: #f77214;
 		border-radius: 4px;
 		padding: 6px;
 		font-size: 18px;
@@ -106,6 +106,13 @@
 			color: #f77214;
 		}
 	}
+	.btn:disabled {
+		background-color: #85400f;
+		&:hover {
+			background-color: #85400f;
+			color: #fff;
+		}
+	}
 }
 
 .save {
@@ -121,6 +128,7 @@
 	font-weight: 600;
 	display: inline-block;
 }
+
 @media (max-width: 676px) {
 	.card {
 		.content {
