@@ -12,7 +12,7 @@ import styles from './Popups.module.scss'
 const GetLuckyPopup: FC = () => {
 	const [isVisible, setIsVisible] = useState(false)
 	const [isClient, setIsClient] = useState(false)
-	const popupDelay = 35000 // 5 seconds
+	const popupDelay = 15000 // 15 seconds
 	const cookieName = 'getLuckyPopupUsed'
 	const cookieExpiryDays = 30
 
@@ -32,16 +32,13 @@ const GetLuckyPopup: FC = () => {
 		const hasUsedPopup = Cookies.get(cookieName)
 		const popupViewed = Cookies.get('viewed')
 
-		if (!hasUsedPopup) {
+		if (!popupViewed && !hasUsedPopup) {
 			const timer = setTimeout(() => {
 				setIsVisible(true)
 			}, popupDelay)
 			return () => clearTimeout(timer)
 		}
-		if (popupViewed && hasUsedPopup) {
-			setIsVisible(false)
-		}
-	}, [])
+	}, [popupDelay, cookieName])
 
 	const closePopup = () => {
 		setIsVisible(false)
@@ -57,87 +54,96 @@ const GetLuckyPopup: FC = () => {
 		}
 	}
 
-	if (!isClient || !isVisible) return null
+	const showPopup = () => {
+		setIsVisible(true)
+	}
 
-	if (isVisible)
-		return (
-			<div className={styles.luckyOpenPopup} onClick={() => setIsVisible(true)}>
+	if (!isClient) return null
+
+	return (
+		<>
+			{isVisible &&
+				ReactDOM.createPortal(
+					<div className={styles.luckyOverlay}>
+						<div className={styles.luckyContent}>
+							<div className={styles.luckyWrapper}>
+								{isError ? (
+									<div>Error</div>
+								) : isLoading ? (
+									<div>Loading...</div>
+								) : success ? (
+									<div className={styles.luckySuccess}>
+										<h3>CONGRATS!</h3>
+										<h4>Check your email inbox to claim the winnings.</h4>
+										<h5>
+											If you can&apos;t find our email, check Promotions and/or
+											SPAM folders.
+										</h5>
+										<button onClick={closePopup}>Continue shopping</button>
+									</div>
+								) : (
+									<>
+										<div className={styles.luckyImg}>
+											<img
+												src={'/lucky-wheel.gif'}
+												alt='wheel'
+												width={300}
+												height={300}
+											/>
+										</div>
+										<h2>Get Lucky!</h2>
+										<p className={styles.descr}>
+											Enter your email for the chance to win big!
+										</p>
+										<form onSubmit={handleSubmit(formSubmit)}>
+											<label>
+												<input
+													placeholder='Email'
+													type='email'
+													{...register('email', {
+														required: 'Email is required',
+														pattern: {
+															value:
+																/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+															message: 'Invalid email address'
+														}
+													})}
+												/>
+												{errors.email && (
+													<p className={styles.luckyError}>
+														{errors?.email?.message}
+													</p>
+												)}
+											</label>
+											<button className={styles.luckySubmit}>
+												Try your luck
+											</button>
+											<button
+												className={styles.luckyLater}
+												onClick={closePopup}
+											>
+												Save for later
+											</button>
+										</form>
+									</>
+								)}
+								<button className={styles.luckyClose} onClick={closePopup}>
+									<Image
+										src={'/lucky-close.svg'}
+										alt='close'
+										width={40}
+										height={40}
+									/>
+								</button>
+							</div>
+						</div>
+					</div>,
+					document.body
+				)}
+			<div className={styles.luckyOpenPopup} onClick={showPopup}>
 				<span>GET LUCKY!</span>
 			</div>
-		)
-
-	return ReactDOM.createPortal(
-		<>
-			<div className={styles.luckyOverlay}>
-				<div className={styles.luckyContent}>
-					<div className={styles.luckyWrapper}>
-						{isError ? (
-							<div>Error</div>
-						) : isLoading ? (
-							<div>Loading...</div>
-						) : success ? (
-							<div className={styles.luckySuccess}>
-								<h3>CONGRATS!</h3>
-								<h4>Check your email inbox to claim the winnings.</h4>
-								<h5>
-									If you can&apos;t find our email, check Promotions and/or SPAM
-									folders.
-								</h5>
-								<button onClick={closePopup}>Continue shopping</button>
-							</div>
-						) : (
-							<>
-								<div className={styles.luckyImg}>
-									<img
-										src={'/lucky-wheel.gif'}
-										alt='wheel'
-										width={300}
-										height={300}
-									/>
-								</div>
-								<h2>Get Lucky!</h2>
-								<p className={styles.descr}>
-									Enter your email for the chance to win big!
-								</p>
-								<form onSubmit={handleSubmit(formSubmit)}>
-									<label>
-										<input
-											placeholder='Email'
-											type='email'
-											{...register('email', {
-												required: 'Email is required',
-												pattern: {
-													value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-													message: 'Invalid email address'
-												}
-											})}
-										/>
-										{errors.email && (
-											<p className={styles.luckyError}>
-												{errors?.email?.message}
-											</p>
-										)}
-									</label>
-									<button className={styles.luckySubmit}>Try your luck</button>
-									<button className={styles.luckyLater} onClick={closePopup}>
-										save for later
-									</button>
-								</form>
-							</>
-						)}
-						<button className={styles.luckyClose} onClick={closePopup}>
-							<Image
-								src={'/lucky-close.svg'}
-								alt='close'
-								width={40}
-								height={40}
-							/>
-						</button>
-					</div>
-				</div>
-			</div>
-		</>,
-		document.body
+		</>
 	)
 }
 
