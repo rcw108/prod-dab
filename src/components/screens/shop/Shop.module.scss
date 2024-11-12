@@ -61,6 +61,12 @@
 	}
 }
 
+@media (min-width: 1600px) {
+	.newHead {
+		height: 500px;
+	}
+}
+
 @media (max-width: 1500px) {
 	.newHead {
 		width: 100%;
