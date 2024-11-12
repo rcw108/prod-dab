@@ -31,6 +31,7 @@ const ReviewsContent: FC<{
 	const [disabled, setDisabled] = useState(false)
 	const [isOpen, setIsOpen] = useState(false)
 	const [imageSrc, setImageSrc] = useState('')
+	const [isFirstRender, setIsFirstRender] = useState(true)
 
 	const openLightbox = (imageUrl: string) => {
 		setImageSrc(imageUrl)
@@ -66,9 +67,13 @@ const ReviewsContent: FC<{
 
 	const handleClickPagination = (page: number) => {
 		setPage(page)
+		setIsFirstRender(false)
 	}
 
 	useEffect(() => {
+		if (isFirstRender) {
+			return
+		}
 		if (contentBlockRef.current) {
 			const yOffset = -148
 			const elementPosition =
