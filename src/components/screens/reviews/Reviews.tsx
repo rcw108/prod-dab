@@ -5,10 +5,12 @@ import HeadAccountSection from '@/components/ui/myAccount/headAccountSection/Hea
 import TitleAccountSection from '@/components/ui/myAccount/titleAccountSection/TitleAccountSection'
 import ReviewsContent from '@/components/ui/reviews/reviewsContent/ReviewsContent'
 import { Reviews as IReviews } from '@/types/reviews.interface'
-import { FC } from 'react'
+import { FC, useRef } from 'react'
 import styles from './Reviews.module.scss'
 
 const Reviews: FC<{ layout: IReviews }> = ({ layout }) => {
+	const contentBlockRef = useRef<HTMLDivElement>(null)
+
 	return (
 		<main>
 			<HeadAccountSection
@@ -27,7 +29,8 @@ const Reviews: FC<{ layout: IReviews }> = ({ layout }) => {
 				className={styles.title}
 			/>
 
-			<ReviewsContent />
+			<div className='archon' ref={contentBlockRef}></div>
+			<ReviewsContent contentBlockRef={contentBlockRef} />
 
 			<HeadAccountSection
 				contentLines={layout.acf.list_rp.map(item => {

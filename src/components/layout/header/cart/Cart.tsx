@@ -10,7 +10,6 @@ import Cookies from 'js-cookie'
 import Image from 'next/image'
 import Link from 'next/link'
 import { FC, useEffect, useState } from 'react'
-import stylesHeader from '../Header.module.scss'
 import styles from './Cart.module.scss'
 import RelatedProduct from './selectUnlock/RelatedProduct'
 import SelectUnlock from './selectUnlock/SelectUnlock'
@@ -154,9 +153,9 @@ const Cart: FC = () => {
 
 	return (
 		<>
-			<div className={stylesHeader.cart} onClick={() => setOpenCart(!openCart)}>
+			{/* <div className={stylesHeader.cart} onClick={() => setOpenCart(!openCart)}>
 				{cartCount > 9 ? '9+' : cartCount}
-			</div>
+			</div> */}
 			<div
 				className={clsx(styles.background, { [styles.openBg]: openCart })}
 				onClick={() => setOpenCart(false)}
@@ -328,7 +327,7 @@ const Cart: FC = () => {
 											>
 												<motion.div
 													className={styles.handle}
-													layout
+													// layout
 													transition={spring}
 												/>
 											</div>

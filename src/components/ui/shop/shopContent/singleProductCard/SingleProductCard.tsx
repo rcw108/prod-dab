@@ -38,6 +38,13 @@ const SingleProductCard: FC<WooCommerceSingleProduct> = ({
 	const { openCart, setOpenCart } = useCartContext()
 
 	const handleAddProduct = () => {
+		const header = document.querySelector('header')
+		console.log(header)
+		if (header) {
+			;(header as HTMLElement).style.top = '0'
+			;(header as HTMLElement).style.transform = 'translateY(0)'
+			;(header as HTMLElement).style.overflow = 'auto'
+		}
 		setOpenCart(true)
 		setDisable(true)
 		addToCart({

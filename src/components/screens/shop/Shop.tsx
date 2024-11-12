@@ -13,7 +13,7 @@ import { Category, Tag } from '@/store/products/product.interface'
 import { IShopPage } from '@/types/shopPage.interface'
 import { Vibe } from '@/types/wooCommerce.interface'
 import Image from 'next/image'
-import { FC, useEffect } from 'react'
+import { FC, useEffect, useRef } from 'react'
 import ReactHtmlParser from 'react-html-parser'
 import styles from './Shop.module.scss'
 
@@ -31,6 +31,8 @@ const Shop: FC<IShop> = ({ data, categories, tags, vibes }) => {
 		categories: allCategories,
 		tags: allTags
 	} = useProducts()
+
+	const contentBlockRef = useRef<HTMLDivElement>(null)
 
 	const { products, isLoading } = useGetAllSingleProducts()
 
@@ -106,11 +108,13 @@ const Shop: FC<IShop> = ({ data, categories, tags, vibes }) => {
 				reviews_repeater={data.acf.reviews_repeater}
 				subtitle_review={data.acf.subtitle_review}
 			/> */}
+			<div className='archon' ref={contentBlockRef}></div>
 			<ReviewsContent
 				className='bg-black'
 				classNameText='text-white'
 				classNameTitle={styles.titleContentShop}
 				classNamePag={styles.paginationShop}
+				contentBlockRef={contentBlockRef}
 			/>
 			<FormSection
 				background_image_form={data.acf.form_bg}

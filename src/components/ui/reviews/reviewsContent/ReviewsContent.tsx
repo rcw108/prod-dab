@@ -4,7 +4,7 @@ import { getReviews } from '@/components/screens/reviews/review.actions'
 import { Stamped } from '@/types/stamped.interface'
 import clsx from 'clsx'
 import Image from 'next/image'
-import { FC, useEffect, useRef, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 import ReactHtmlParser from 'react-html-parser'
 import Lightbox from 'react-image-lightbox'
 import 'react-image-lightbox/style.css'
@@ -18,11 +18,13 @@ const ReviewsContent: FC<{
 	classNameTitle?: string
 	classNamePag?: string
 	classNameText?: string
+	contentBlockRef: React.RefObject<HTMLDivElement>
 }> = ({
 	className = 'bg-white',
 	classNameTitle,
 	classNameText,
-	classNamePag
+	classNamePag,
+	contentBlockRef
 }) => {
 	const [reviewsContent, setReviewsContent] = useState<Stamped | null>(null)
 	const [page, setPage] = useState(1)
@@ -34,8 +36,6 @@ const ReviewsContent: FC<{
 		setImageSrc(imageUrl)
 		setIsOpen(true)
 	}
-
-	const contentBlockRef = useRef<HTMLDivElement>(null)
 
 	useEffect(() => {
 		setDisabled(true)
@@ -66,6 +66,9 @@ const ReviewsContent: FC<{
 
 	const handleClickPagination = (page: number) => {
 		setPage(page)
+	}
+
+	useEffect(() => {
 		if (contentBlockRef.current) {
 			const yOffset = -148
 			const elementPosition =
@@ -77,7 +80,7 @@ const ReviewsContent: FC<{
 				behavior: 'smooth'
 			})
 		}
-	}
+	}, [reviewsContent])
 
 	return (
 		<section className={className} ref={contentBlockRef}>
